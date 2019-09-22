@@ -1,3 +1,5 @@
+//This component is 
+
 import React from 'react';
 import './MahjongScoreFields.css';
 
