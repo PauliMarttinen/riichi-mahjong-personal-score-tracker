@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <MahjongScoreFields />
+      <MahjongScoreFields initialPoints="30000" />
       <TransactionViews />
     </div>
   );
