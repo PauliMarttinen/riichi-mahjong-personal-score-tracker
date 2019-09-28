@@ -17,10 +17,10 @@ export class SmallTransactionsButtons extends React.Component
   {
     return (
       <div className="keypad">
-        <SmallTransactionsButton direction="pay" amount="1000"/>
-        <SmallTransactionsButton direction="get" amount="1000"/>
-        <SmallTransactionsButton direction="pay" amount="1500"/>
-        <SmallTransactionsButton direction="get" amount="1500"/>
+        <SmallTransactionsButton onClick={this.props.onClick} direction="pay" amount="1000"/>
+        <SmallTransactionsButton onClick={this.props.onClick} direction="get" amount="1000"/>
+        <SmallTransactionsButton onClick={this.props.onClick} direction="pay" amount="1500"/>
+        <SmallTransactionsButton onClick={this.props.onClick} direction="get" amount="1500"/>
       </div>
     );
   }

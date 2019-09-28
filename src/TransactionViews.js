@@ -69,7 +69,7 @@ class TransactionViews extends React.Component
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>
-            <SmallTransactionsButtons />
+            <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>
             Scoring Table goes here

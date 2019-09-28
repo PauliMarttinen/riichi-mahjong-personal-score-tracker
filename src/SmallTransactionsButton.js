@@ -15,23 +15,26 @@ export class SmallTransactionsButton extends React.Component
   constructor(props)
   {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      amount: 1010
+    };
   }
 
-  handleClick(e)
+  /* handleClick(e)
   {
     console.log(this.props.direction);
     console.log(this.props.amount);
-  }
+    console.log(e);
+  } */
 
   render()
   {
-    var direction = (this.props.direction === "pay") ? "Pay" : "Get";
+    var directionText = (this.props.direction === "pay") ? "Pay" : "Get";
 
     return (
-      <div onClick={this.handleClick} className="button smallTransactions">
-        {direction} {this.props.amount}
-      </div>
+      <button data-direction={this.props.direction} data-amount={this.props.amount} onClick={e => this.props.onClick(e.target)} className="smallTransactions">
+        {directionText} {this.props.amount}
+      </button>
     );
   }
 }
