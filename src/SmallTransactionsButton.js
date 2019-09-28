@@ -8,7 +8,7 @@
 //Out of the two similarly named components and files, this one is a single button and has all the functionality.
 
 import React from 'react';
-import './button.css';
+
 
 export class SmallTransactionsButton extends React.Component
 {
@@ -19,13 +19,6 @@ export class SmallTransactionsButton extends React.Component
       amount: 1010
     };
   }
-
-  /* handleClick(e)
-  {
-    console.log(this.props.direction);
-    console.log(this.props.amount);
-    console.log(e);
-  } */
 
   render()
   {

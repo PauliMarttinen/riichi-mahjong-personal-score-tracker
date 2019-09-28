@@ -9,7 +9,6 @@
 
 import React from 'react';
 import SmallTransactionsButton from './SmallTransactionsButton.js';
-//import './button.css';
 
 export class SmallTransactionsButtons extends React.Component
 {

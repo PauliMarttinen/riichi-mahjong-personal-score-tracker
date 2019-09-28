@@ -7,10 +7,15 @@
 //probably make it a ton easier to use and nicer to look at.
 
 import React from 'react';
+
+//For the swipeable views
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
+
+//For the transaction buttons.
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
+import LimitHands from './LimitHands.js';
 
 const styles = {
   tabs: {
@@ -30,12 +35,15 @@ const styles = {
   slide3: {
     backgroundColor: '#6AC0FF',
   },
+  slide4: {
+    backgroundColor: '#FF6AC0',
+  },
 };
 
 class TransactionViews extends React.Component
 {
   state = {
-    index: 1
+    index: 2
   };
 
   handleChange = (event, value) =>
@@ -66,16 +74,20 @@ class TransactionViews extends React.Component
           <Tab label="Small transactions"></Tab>
           <Tab label="Scoring table"></Tab>
           <Tab label="Limit hands"></Tab>
+          <Tab label="Custom input"></Tab>
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>
-            Scoring Table goes here
+            Scoring Table goes here.
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
-            Limit hands go here.
+            <LimitHands />
+          </div>
+          <div style={Object.assign({}, styles.slide, styles.slide4)}>
+            Custom input goes here.
           </div>
         </SwipeableViews>
       </div>
