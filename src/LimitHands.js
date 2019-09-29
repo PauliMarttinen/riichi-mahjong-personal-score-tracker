@@ -18,46 +18,6 @@ class LimitHands extends React.Component
     }
   }
 
-  /*transactionButton = (basepoints) =>
-  {
-    var payment, paymentWithHonba, agari, result;
-
-    if (this.state.table === 0) //East Tsumo
-    {
-      payment = basepoints * 2;
-      agari = "tsumo";
-    }
-    if (this.state.table === 1) //East Ron
-    {
-      payment = basepoints * 6;
-      agari = "ron";
-    }
-    if (this.state.table === 3) //Other Ron
-    {
-      payment = basepoints * 4;
-      agari = "ron";
-    }
-
-    if (this.state.table === 2) //Other Tsumo
-    {
-      payment = basepoints * 4;
-      paymentWithHonba = {
-        east: (basepoints * 2) + (this.state.honba * 100),
-        others: basepoints + (this.state.honba * 100)
-      };
-      
-      result = <button data-table={this.state.table} data-payment={payment} data-honba={this.state.honba} onClick={e => this.props.transactionConfirmation(e.target)}>{paymentWithHonba.others}<br />{paymentWithHonba.east}</button>;
-    }
-    else
-    {
-      var honbaBonus = this.state.honba * ((agari === "tsumo") ? 100 : 300);
-      paymentWithHonba = payment + honbaBonus;
-      result = <button data-table={this.state.table} data-payment={payment} data-honba={this.state.honba} onClick={e => this.props.transactionConfirmation(e.target)}>{paymentWithHonba}</button>;
-    }
-
-    return result;
-  }*/
-
   changeHonba = (newHonba) =>
   {
     this.setState({
@@ -87,27 +47,27 @@ class LimitHands extends React.Component
             <tr>
               <td>5</td>
               <td>Mangan</td>
-              <td><TransactionButton basepoints="2000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
+              <td><TransactionButton limithand="true" basepoints="2000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>6–7</td>
               <td>Haneman</td>
-              <td><TransactionButton basepoints="3000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
+              <td><TransactionButton limithand="true" basepoints="3000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>8–10</td>
               <td>Baiman</td>
-              <td><TransactionButton basepoints="4000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
+              <td><TransactionButton limithand="true" basepoints="4000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>11–12</td>
               <td>Sanbaiman</td>
-              <td><TransactionButton basepoints="6000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
+              <td><TransactionButton limithand="true" basepoints="6000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>13+</td>
               <td>Yakuman</td>
-              <td><TransactionButton basepoints="8000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
+              <td><TransactionButton limithand="true" basepoints="8000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
           </tbody>
         </table>

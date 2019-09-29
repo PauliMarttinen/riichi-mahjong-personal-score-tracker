@@ -56,7 +56,7 @@ class TransactionViews extends React.Component
   {
     super();
     this.state = {
-      index: 2,
+      index: 1,
       confirmPopup: {
         show: false,
         table: 0,
@@ -130,7 +130,7 @@ class TransactionViews extends React.Component
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>
-            <ScoringTable />
+            <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
             <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
