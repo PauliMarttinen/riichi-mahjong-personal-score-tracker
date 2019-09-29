@@ -15,9 +15,6 @@ export class SmallTransactionsButton extends React.Component
   constructor(props)
   {
     super(props);
-    this.state = {
-      amount: 1010
-    };
   }
 
   render()
