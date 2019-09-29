@@ -75,10 +75,10 @@ class LimitHands extends React.Component
     return (
       <div>
         <Tabs value={this.state.table} fullWidth="fullWidth" onChange={this.changeTable}>
-          <Tab label="East Tsumo"></Tab>
-          <Tab label="East Ron"></Tab>
-          <Tab label="Other Tsumo"></Tab>
-          <Tab label="Other Ron"></Tab>
+          <Tab label="East Tsumo" />
+          <Tab label="East Ron" />
+          <Tab label="Other Tsumo" />
+          <Tab label="Other Ron" />
         </Tabs>
         <table>
           <tbody>

@@ -21,6 +21,9 @@ import ScoringTable from './ScoringTable.js';
 //Confirmation popup.
 import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
 
+//App info.
+import AppInfo from './AppInfo.js';
+
 const styles = {
   tabs: {
     background: '#fff',
@@ -41,6 +44,9 @@ const styles = {
   },
   slide4: {
     backgroundColor: '#FF6AC0',
+  },
+  slide5: {
+    backgroundColor: '#B3C04A',
   },
 };
 
@@ -95,10 +101,11 @@ class TransactionViews extends React.Component
     return(
       <div>
         <Tabs value={index} fullWidth onChange={this.changeTab} style={styles.tabs}>
-          <Tab label="Small transactions"></Tab>
-          <Tab label="Scoring table"></Tab>
-          <Tab label="Limit hands"></Tab>
-          <Tab label="Custom input"></Tab>
+          <Tab label="Small transactions" />
+          <Tab label="Scoring table" />
+          <Tab label="Limit hands" />
+          <Tab label="Custom input" />
+          <Tab label="Info" />
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={this.changeView}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -112,6 +119,9 @@ class TransactionViews extends React.Component
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide4)}>
             Custom input goes here.
+          </div>
+          <div style={Object.assign({}, styles.slide, styles.slide5)}>
+            <AppInfo />
           </div>
         </SwipeableViews>
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} /> : null)}
