@@ -96,6 +96,19 @@ class TransactionViews extends React.Component
     });
   }
 
+  confirmationClick = (button) =>
+  {
+    if (button.name !== "cancel")
+    {
+      this.props.onClick(button);
+    }
+    this.setState({
+      confirmPopup: {
+        show: false
+      }
+    });
+  }
+
   render()
   {
     const {index} = this.state;
@@ -126,7 +139,7 @@ class TransactionViews extends React.Component
             <AppInfo />
           </div>
         </SwipeableViews>
-        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} honba={this.state.confirmPopup.honba} /> : null)}
+        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} honba={this.state.confirmPopup.honba} onClick={this.confirmationClick} /> : null)}
       </div>
     )
   }
