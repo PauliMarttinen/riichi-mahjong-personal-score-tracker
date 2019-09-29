@@ -19,7 +19,7 @@ class LimitHands extends React.Component
 
   transactionButton = (basepoints) =>
   {
-    var payment, agari, result;
+    var payment, paymentWithHonba, agari, result;
 
     if (this.state.table === 0) //East Tsumo
     {
@@ -39,18 +39,19 @@ class LimitHands extends React.Component
 
     if (this.state.table === 2) //Other Tsumo
     {
-      payment = {
+      payment = basepoints * 4;
+      paymentWithHonba = {
         east: (basepoints * 2) + (this.state.honba * 100),
         others: basepoints + (this.state.honba * 100)
       };
       
-      result = <button data-table={this.state.table} data-payment={payment.others * 4} onClick={e => this.props.transactionConfirmation(e.target)}>{payment.others}<br />{payment.east}</button>;
+      result = <button data-table={this.state.table} data-payment={payment} data-honba={this.state.honba} onClick={e => this.props.transactionConfirmation(e.target)}>{paymentWithHonba.others}<br />{paymentWithHonba.east}</button>;
     }
     else
     {
       var honbaBonus = this.state.honba * ((agari === "tsumo") ? 100 : 300);
-      payment += honbaBonus;
-      result = <button data-table={this.state.table} data-payment={payment} onClick={e => this.props.transactionConfirmation(e.target)}>{payment}</button>;
+      paymentWithHonba = payment + honbaBonus;
+      result = <button data-table={this.state.table} data-payment={payment} data-honba={this.state.honba} onClick={e => this.props.transactionConfirmation(e.target)}>{paymentWithHonba}</button>;
     }
 
     return result;
@@ -109,7 +110,7 @@ class LimitHands extends React.Component
             </tr>
           </tbody>
         </table>
-        <IncreaseDecrease value="0" minimum="0" increment="1" label="Honba" onClick={this.changeHonba} />
+        <IncreaseDecrease value={this.state.honba} minimum="0" increment="1" label="Honba" onClick={this.changeHonba} />
       </div>
     );
   }

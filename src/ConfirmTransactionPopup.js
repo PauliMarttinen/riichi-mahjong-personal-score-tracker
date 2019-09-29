@@ -7,7 +7,7 @@ class ConfirmTransactionPopup extends React.Component
     return (
       <div className="popup">
         <div>
-          Win type: {this.props.table}. Amount: {this.props.payment}
+          Win type: {this.props.table}. Amount: {this.props.payment}. Honba: {this.props.honba}.
         </div>
         <button>Cancel</button>
         <button>Win as east</button>

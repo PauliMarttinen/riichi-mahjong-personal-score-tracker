@@ -60,6 +60,7 @@ class TransactionViews extends React.Component
       confirmPopup: {
         show: false,
         table: 0,
+        honba: 0,
         payment: 0
       }
     };
@@ -89,6 +90,7 @@ class TransactionViews extends React.Component
       confirmPopup: {
         show: true,
         table: button.dataset.table,
+        honba: button.dataset.honba,
         payment: button.dataset.payment
       }
     });
@@ -124,7 +126,7 @@ class TransactionViews extends React.Component
             <AppInfo />
           </div>
         </SwipeableViews>
-        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} /> : null)}
+        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} honba={this.state.confirmPopup.honba} /> : null)}
       </div>
     )
   }
