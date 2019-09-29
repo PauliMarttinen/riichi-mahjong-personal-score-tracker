@@ -61,7 +61,9 @@ class TransactionViews extends React.Component
         show: false,
         table: 0,
         honba: 0,
-        payment: 0
+        payment: 0,
+        paymentEast: 0,
+        paymentOther: 0
       }
     };
   }
@@ -91,7 +93,9 @@ class TransactionViews extends React.Component
         show: true,
         table: button.dataset.table,
         honba: button.dataset.honba,
-        payment: button.dataset.payment
+        payment: button.dataset.payment,
+        paymentEast: button.dataset.paymenteast,
+        paymentOther: button.dataset.paymentother
       }
     });
   }
@@ -107,7 +111,9 @@ class TransactionViews extends React.Component
         show: false,
         honba: 0,
         table: 0,
-        payment: 0
+        payment: 0,
+        paymentEast: 0,
+        paymentOther: 0
       }
     });
   }
@@ -142,7 +148,13 @@ class TransactionViews extends React.Component
             <AppInfo />
           </div>
         </SwipeableViews>
-        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} honba={this.state.confirmPopup.honba} onClick={this.confirmationClick} /> : null)}
+        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
+                                           table={this.state.confirmPopup.table}
+                                           payment={this.state.confirmPopup.payment}
+                                           paymentEast={this.state.confirmPopup.paymentEast} 
+                                           paymentOther={this.state.confirmPopup.paymentOther}
+                                           honba={this.state.confirmPopup.honba} 
+                                           onClick={this.confirmationClick} /> : null)}
       </div>
     )
   }

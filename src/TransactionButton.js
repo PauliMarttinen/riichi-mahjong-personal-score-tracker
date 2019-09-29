@@ -4,63 +4,75 @@ import React from 'react';
 
 class TransactionButton extends React.Component
 {
+  roundUp = (basepoints) =>
+  {
+    return Math.ceil(basepoints / 100) * 100;
+  }
   render()
   {
     var payment, paymentWithHonba, agari, result;
     var basepoints = parseInt(this.props.basepoints);
+    var honba = parseInt(this.props.honba);
+    var table = parseInt(this.props.table);
 
     if (this.props.limithand === "false" && basepoints > 2000)
     {
       basepoints = 2000;
     }
 
-    if (this.props.table === 0) //East Tsumo
+    if (table === 0) //East Tsumo
     {
       payment = basepoints * 2;
       agari = "tsumo";
     }
-    if (this.props.table === 1) //East Ron
+    if (table === 1) //East Ron
     {
       payment = basepoints * 6;
       agari = "ron";
     }
-    if (this.props.table === 3) //Other Ron
+    if (table === 3) //Other Ron
     {
       payment = basepoints * 4;
       agari = "ron";
     }
 
-    if (this.props.table === 2) //Other Tsumo
+    if (table === 2) //Other Tsumo
     {
       if (this.props.limithand === "false")
       {
-        payment = Math.ceil(basepoints * 4 / 100) * 100;
+        //payment = this.roundUp(basepoints) * 2 + this.roundUp(basepoints * 2);
+        payment = {
+          east: this.roundUp(basepoints * 2),
+          other: this.roundUp(basepoints)
+        }
         paymentWithHonba = {
-          east: (Math.ceil(basepoints * 2 / 100) * 100) + (this.props.honba * 100),
-          others: (Math.ceil(basepoints / 100) * 100) + (this.props.honba * 100)
+          east: this.roundUp(basepoints * 2) + (honba * 100),
+          other: this.roundUp(basepoints) + (honba * 100)
         };
       }
       else
       {
-        payment = basepoints * 4;
+        payment = {
+          east: basepoints * 2,
+          other: basepoints
+        }
         paymentWithHonba = {
-          east: (basepoints * 2) + (this.props.honba * 100),
-          others: basepoints + (this.props.honba * 100)
+          east: (basepoints * 2) + (honba * 100),
+          other: basepoints + (honba * 100)
         };
       }
-
-      result = <button data-table={this.props.table} data-payment={payment} data-honba={this.props.honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba.others}<br />{paymentWithHonba.east}</button>;
+      result = <button data-table={table} data-paymenteast={payment.east} data-paymentother={payment.other} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba.other}<br />{paymentWithHonba.east}</button>;
     }
     else
     {
       if (this.props.limithand === "false")
       {
-        payment = Math.ceil(payment / 100) * 100;
+        payment = this.roundUp(payment);
       }
 
-      var honbaBonus = this.props.honba * ((agari === "tsumo") ? 100 : 300);
+      var honbaBonus = honba * ((agari === "tsumo") ? 100 : 300);
       paymentWithHonba = payment + honbaBonus;
-      result = <button data-table={this.props.table} data-payment={payment} data-honba={this.props.honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba}</button>;
+      result = <button data-table={table} data-payment={payment} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba}</button>;
     }
 
     return result;

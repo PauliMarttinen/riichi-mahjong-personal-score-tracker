@@ -26,9 +26,9 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-          <button data-direction="get" data-amount={(payment) + (this.props.honba * 300)} onClick={e => this.props.onClick(e.target)}>Win</button>
-          <button data-direction="pay" data-amount={(payment / 4) + (this.props.honba * 100)} onClick={e => this.props.onClick(e.target)}>Lose as Other</button>
-          <button data-direction="pay" data-amount={(payment / 2) + (this.props.honba * 100)} onClick={e => this.props.onClick(e.target)}>Lose as East</button>
+          <button data-direction="get" data-amount={(payment.east + payment.other * 2) + (this.props.honba * 300)} onClick={e => this.props.onClick(e.target)}>Win</button>
+          <button data-direction="pay" data-amount={(payment.other) + (this.props.honba * 100)} onClick={e => this.props.onClick(e.target)}>Lose as Other</button>
+          <button data-direction="pay" data-amount={(payment.east) + (this.props.honba * 100)} onClick={e => this.props.onClick(e.target)}>Lose as East</button>
         </div>
       );
     }
@@ -45,15 +45,32 @@ class ConfirmTransactionPopup extends React.Component
 
   render()
   {
-    return (
-      <div className="popup">
-        <div>
-          Table: {this.props.table}. Amount: {this.props.payment}. Honba: {this.props.honba}.
+    console.log(this.props);
+    if (parseInt(this.props.table) === 2)
+    {
+      
+      return (
+        <div className="popup">
+          <div>
+            Table: {this.props.table}. East: {this.props.paymentEast}, other: {this.props.paymentOther}. Honba: {this.props.honba}.
+          </div>
+          <button name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+          {this.buttons({east: parseInt(this.props.paymentEast), other: parseInt(this.props.paymentOther) })}
         </div>
-        <button name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
-        {this.buttons(parseInt(this.props.payment))}
-      </div>
-    );
+      );
+    }
+    else
+    {
+      return (
+        <div className="popup">
+          <div>
+            Table: {this.props.table}. Amount: {this.props.payment}. Honba: {this.props.honba}.
+          </div>
+          <button name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+          {this.buttons(parseInt(this.props.payment))}
+        </div>
+      );
+    }
   }
 }
 
