@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
+import TransactionButton from './TransactionButton.js';
 
 class ScoringTable extends React.Component
 {
@@ -14,46 +15,6 @@ class ScoringTable extends React.Component
     this.state = {
       honba: 0,
       table: 0
-    }
-  }
-
-  displayPoints = (basepoints) =>
-  {
-    var result, agari;
-
-    if (this.state.table === 0) //East Tsumo
-    {
-      result = basepoints * 2;
-      agari = "tsumo";
-    }
-    if (this.state.table === 1) //East Ron
-    {
-      result = basepoints * 6;
-      agari = "ron";
-    }
-    if (this.state.table === 3) //Other Ron
-    {
-      result = basepoints * 4;
-      agari = "ron";
-    }
-
-    if (this.state.table === 2) //Other Tsumo
-    {
-      result = {
-        east: (basepoints * 2) + (this.state.honba * 100),
-        others: basepoints + (this.state.honba * 100)
-      };
-      return (
-        <span>{result.others}<br />{result.east}</span>
-      );
-    }
-    else
-    {
-      var honbaBonus = this.state.honba * ((agari === "tsumo") ? 100 : 300);
-      result += honbaBonus;
-      return (
-        <span>{result}</span>
-      );
     }
   }
 

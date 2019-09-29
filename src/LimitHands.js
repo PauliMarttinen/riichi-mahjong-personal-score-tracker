@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
+import TransactionButton from './TransactionButton.js';
 
 class LimitHands extends React.Component
 {
@@ -17,7 +18,7 @@ class LimitHands extends React.Component
     }
   }
 
-  transactionButton = (basepoints) =>
+  /*transactionButton = (basepoints) =>
   {
     var payment, paymentWithHonba, agari, result;
 
@@ -55,7 +56,7 @@ class LimitHands extends React.Component
     }
 
     return result;
-  }
+  }*/
 
   changeHonba = (newHonba) =>
   {
@@ -86,27 +87,27 @@ class LimitHands extends React.Component
             <tr>
               <td>5</td>
               <td>Mangan</td>
-              <td>{this.transactionButton(2000)}</td>
+              <td><TransactionButton basepoints="2000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>6–7</td>
               <td>Haneman</td>
-              <td>{this.transactionButton(3000)}</td>
+              <td><TransactionButton basepoints="3000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>8–10</td>
               <td>Baiman</td>
-              <td>{this.transactionButton(4000)}</td>
+              <td><TransactionButton basepoints="4000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>11–12</td>
               <td>Sanbaiman</td>
-              <td>{this.transactionButton(6000)}</td>
+              <td><TransactionButton basepoints="6000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
             <tr>
               <td>13+</td>
               <td>Yakuman</td>
-              <td>{this.transactionButton(8000)}</td>
+              <td><TransactionButton basepoints="8000" table={this.state.table} honba={this.state.honba} onClick={this.props.transactionConfirmation} /></td>
             </tr>
           </tbody>
         </table>

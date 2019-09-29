@@ -104,7 +104,10 @@ class TransactionViews extends React.Component
     }
     this.setState({
       confirmPopup: {
-        show: false
+        show: false,
+        honba: 0,
+        table: 0,
+        payment: 0
       }
     });
   }
