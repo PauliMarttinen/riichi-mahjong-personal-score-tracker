@@ -16,6 +16,10 @@ import SwipeableViews from 'react-swipeable-views';
 //For the transaction buttons.
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
 import LimitHands from './LimitHands.js';
+import ScoringTable from './ScoringTable.js';
+
+//Confirmation popup.
+import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
 
 const styles = {
   tabs: {
@@ -42,11 +46,20 @@ const styles = {
 
 class TransactionViews extends React.Component
 {
-  state = {
-    index: 2
-  };
+  constructor()
+  {
+    super();
+    this.state = {
+      index: 2,
+      confirmPopup: {
+        show: false,
+        table: 0,
+        payment: 0
+      }
+    };
+  }
 
-  handleChange = (event, value) =>
+  changeTab = (event, value) =>
   {
     this.setState(
       {
@@ -55,7 +68,7 @@ class TransactionViews extends React.Component
     );
   }
 
-  handleChangeIndex = index =>
+  changeView = index =>
   {
     this.setState(
       {
@@ -64,32 +77,44 @@ class TransactionViews extends React.Component
     );
   };
 
+  askToConfirmTransaction = (button) =>
+  {
+    this.setState({
+      confirmPopup: {
+        show: true,
+        table: button.dataset.table,
+        payment: button.dataset.payment
+      }
+    });
+  }
+
   render()
   {
     const {index} = this.state;
 
     return(
       <div>
-        <Tabs value={index} fullWidth onChange={this.handleChange} style={styles.tabs}>
+        <Tabs value={index} fullWidth onChange={this.changeTab} style={styles.tabs}>
           <Tab label="Small transactions"></Tab>
           <Tab label="Scoring table"></Tab>
           <Tab label="Limit hands"></Tab>
           <Tab label="Custom input"></Tab>
         </Tabs>
-        <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
+        <SwipeableViews index={index} onChangeIndex={this.changeView}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>
-            Scoring Table goes here.
+            <ScoringTable />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>
-            <LimitHands />
+            <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide4)}>
             Custom input goes here.
           </div>
         </SwipeableViews>
+        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup table={this.state.confirmPopup.table} payment={this.state.confirmPopup.payment} /> : null)}
       </div>
     )
   }

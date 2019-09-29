@@ -12,11 +12,6 @@ import React from 'react';
 
 export class SmallTransactionsButton extends React.Component
 {
-  constructor(props)
-  {
-    super(props);
-  }
-
   render()
   {
     var directionText = (this.props.direction === "pay") ? "Pay" : "Get";

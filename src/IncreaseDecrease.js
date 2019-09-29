@@ -16,14 +16,11 @@ class IncreaseDecrease extends React.Component
   {
     const increment = parseInt(this.props.increment);
     const minimum = parseInt(this.props.minimum);
-    var newValue;
+    var newValue = this.state.value;
     if (action === "decrease" && (this.state.value - increment) >= minimum)
     {
       newValue = this.state.value - increment
     }
-    //Generically speaking, the next condition should also have a check for not surpassing the maximum value;
-    //however, there's no theoretical maximum to honba in Riichi Mahjong, and I can't yacks to figure out how
-    //to code it so that the component features a maximum that needs not be cared about.
     else if (action === "increase")
     {
       newValue = this.state.value + increment

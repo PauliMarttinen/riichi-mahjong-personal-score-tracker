@@ -1,5 +1,5 @@
 import React from 'react';
-import MahjongScoreFields from './MahjongScoreFields.js';
+import ScoreDisplay from './ScoreDisplay.js';
 import TransactionViews from './TransactionViews.js';
 
 import './App.css';
@@ -32,7 +32,7 @@ class App extends React.Component {
   {
     return (
       <div className="App">
-        <MahjongScoreFields zeroPoint="30000" points={this.state.points} />
+        <ScoreDisplay zeroPoint="30000" points={this.state.points} />
         <TransactionViews onClick={this.onClick} />
       </div>
     );

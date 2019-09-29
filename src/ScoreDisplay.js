@@ -8,9 +8,9 @@
 //with physical sticks, it's common to just add 30,000 to the each player's score and call that their score.
 
 import React from 'react';
-import './MahjongScoreFields.css';
+import './ScoreDisplay.css';
 
-export class MahjongScoreFields extends React.Component
+class ScoreDisplay extends React.Component
 {
     formatPoints(points)
     {
@@ -35,11 +35,11 @@ export class MahjongScoreFields extends React.Component
     {
         return (
             <div>
-                <div className="MahjongScoreField" name="AbsolutePoints">{this.formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
-                <div className="MahjongScoreField" name="RelativePoints">{this.formatPoints(parseInt(this.props.points))}</div>
+                <div className="ScoreDisplay" name="AbsolutePoints">{this.formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
+                <div className="ScoreDisplay" name="RelativePoints">{this.formatPoints(parseInt(this.props.points))}</div>
             </div>
         );
     }
 }
 
-export default MahjongScoreFields;
+export default ScoreDisplay;
