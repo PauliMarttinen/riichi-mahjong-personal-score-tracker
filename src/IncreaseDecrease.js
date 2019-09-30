@@ -1,6 +1,7 @@
 //Element with a number input with minus/plus buttons next to it.
 
 import React from 'react';
+import formatPoints from './FormatPoints.js';
 
 class IncreaseDecrease extends React.Component
 {
@@ -14,10 +15,19 @@ class IncreaseDecrease extends React.Component
 
   onClick = (action) =>
   {
-    const increment = parseInt(this.props.increment);
-    const minimum = parseInt(this.props.minimum);
+    var increment = parseInt(this.props.increment);
+    var minimum;
+    if (this.props.minimum === "noMinimum")
+    {
+      minimum = "noMinimum";
+    }
+    else
+    {
+      minimum = parseInt(this.props.minimum);
+    }
+
     var newValue = this.state.value;
-    if (action === "decrease" && (this.state.value - increment) >= minimum)
+    if (action === "decrease" && ((this.state.value - increment) >= minimum || minimum === "noMinimum"))
     {
       newValue = this.state.value - increment
     }
@@ -34,6 +44,16 @@ class IncreaseDecrease extends React.Component
 
   render()
   {
+    var valueDisplay;
+    if (this.props.formatPoints === "true")
+    {
+      valueDisplay = formatPoints(this.state.value);
+    }
+    else
+    {
+      valueDisplay = this.state.value;
+    }
+    
     return (
       <div>
         <div className="label">
@@ -41,7 +61,7 @@ class IncreaseDecrease extends React.Component
         </div>
         <div>
           <button name="decrease" onClick={e => this.onClick(e.target.name)}>–</button>
-          <input type="text" value={this.state.value} disabled="disabled" />
+          <div>{valueDisplay}</div>
           <button name="increase" onClick={e => this.onClick(e.target.name)}>+</button>
         </div>
       </div>

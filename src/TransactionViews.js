@@ -17,6 +17,7 @@ import SwipeableViews from 'react-swipeable-views';
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
 import LimitHands from './LimitHands.js';
 import ScoringTable from './ScoringTable.js';
+import CustomInput from './CustomInput.js';
 
 //Confirmation popup.
 import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
@@ -56,7 +57,7 @@ class TransactionViews extends React.Component
   {
     super();
     this.state = {
-      index: 1,
+      index: 3,
       confirmPopup: {
         show: false,
         table: 0,
@@ -142,7 +143,7 @@ class TransactionViews extends React.Component
             <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide4)}>
-            Custom input goes here.
+            <CustomInput points={this.props.points} onClick={this.props.onClick}/>
           </div>
           <div style={Object.assign({}, styles.slide, styles.slide5)}>
             <AppInfo />

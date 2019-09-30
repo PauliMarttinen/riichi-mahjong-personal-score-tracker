@@ -8,35 +8,17 @@
 //with physical sticks, it's common to just add 30,000 to the each player's score and call that their score.
 
 import React from 'react';
+import formatPoints from './FormatPoints.js';
 import './ScoreDisplay.css';
 
 class ScoreDisplay extends React.Component
 {
-    formatPoints(points)
-    {
-        var sign;
-        if (points > 0)
-        {
-            sign = "+";
-        }
-        else if (points < 0)
-        {
-            sign = "–";
-            points = -points;
-        }
-        else
-        {
-            sign = "±";
-        }
-        return <span className="points">{sign}{points/100}<span className="hundreds">00</span></span>;
-    }
-
     render()
     {
         return (
             <div>
-                <div className="ScoreDisplay" name="AbsolutePoints">{this.formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
-                <div className="ScoreDisplay" name="RelativePoints">{this.formatPoints(parseInt(this.props.points))}</div>
+                <div className="ScoreDisplay" name="AbsolutePoints">{formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
+                <div className="ScoreDisplay" name="RelativePoints">{formatPoints(parseInt(this.props.points))}</div>
             </div>
         );
     }

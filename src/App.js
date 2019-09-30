@@ -9,6 +9,7 @@ class App extends React.Component {
   {
     super();
     this.state = {
+      zeroPoint: 30000,
       points: 0
     };
   }
@@ -26,14 +27,20 @@ class App extends React.Component {
         points: this.state.points + parseInt(button.dataset.amount)
       });
     }
+    if (button.dataset.direction === "custom")
+    {
+      this.setState({
+        points: button.dataset.amount - this.state.zeroPoint
+      });
+    }
   }
 
   render()
   {
     return (
       <div className="App">
-        <ScoreDisplay zeroPoint="30000" points={this.state.points} />
-        <TransactionViews onClick={this.onClick} />
+        <ScoreDisplay zeroPoint={this.state.zeroPoint} points={this.state.points} />
+        <TransactionViews points={this.state.points + this.state.zeroPoint} onClick={this.onClick} />
       </div>
     );
   }
