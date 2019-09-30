@@ -8,18 +8,18 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-          <button data-direction="get"
-                  data-amount={(payment * 3) + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Win as East</div>
-                    <div>Receive {(payment * 3) + (this.props.honba * 300)} points.</div>
-          </button>
-          <button data-direction="pay"
-                  data-amount={payment + (this.props.honba * 100)} 
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Lose to East</div>
-                    <div>Pay {payment + (this.props.honba * 100)} points.</div>
-          </button>
+          <div>
+            <button data-direction="get"
+                    data-amount={(payment * 3) + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Win as East</button>
+            Receive {payment * 3} + {this.props.honba * 300} = {(payment * 3) + (this.props.honba * 300)} points.
+          </div>
+          <div>
+            <button data-direction="pay"
+                    data-amount={payment + (this.props.honba * 100)} 
+                    onClick={e => this.props.onClick(e.target)}>Lose to East</button>
+            Pay {payment} + {this.props.honba * 100} = {payment + (this.props.honba * 100)} points.
+          </div>
         </div>
       );
     }
@@ -27,18 +27,18 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-          <button data-direction="get"
-                  data-amount={payment + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Win as East</div>
-                    <div>Receive {payment + (this.props.honba * 300)} points.</div>
-          </button>
-          <button data-direction="pay"
-                  data-amount={payment + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Lose to East</div>
-                    <div>Pay {payment + (this.props.honba * 300)} points.</div>
-                  </button>
+          <div>
+            <button data-direction="get"
+                    data-amount={payment + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Win as East</button>
+            Receive {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+          </div>
+          <div>
+            <button data-direction="pay"
+                    data-amount={payment + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Lose to East</button>
+            Pay {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+          </div>
         </div>
       );
     }
@@ -46,24 +46,24 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-          <button data-direction="get"
-                  data-amount={(payment.east + payment.other * 2) + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Win as Other</div>
-                    <div>Receive {(payment.east + payment.other * 2) + (this.props.honba * 300)} points.</div>
-          </button>
-          <button data-direction="pay"
-                  data-amount={(payment.other) + (this.props.honba * 100)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Lose as Other</div>
-                    <div>Pay {(payment.other) + (this.props.honba * 100)} points.</div>
-          </button>
-          <button data-direction="pay"
-                  data-amount={(payment.east) + (this.props.honba * 100)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Lose as East</div>
-                    <div>Pay {(payment.east) + (this.props.honba * 100)} points.</div>
-          </button>
+          <div>
+            <button data-direction="get"
+                    data-amount={(payment.east + payment.other * 2) + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Win as Other</button>
+            Receive {payment.east + payment.other * 2} + {this.props.honba * 300} = {(payment.east + payment.other * 2) + (this.props.honba * 300)} points.
+          </div>
+          <div>
+            <button data-direction="pay"
+                    data-amount={(payment.other) + (this.props.honba * 100)}
+                    onClick={e => this.props.onClick(e.target)}>Lose as Other</button>
+            Pay {payment.other} + {this.props.honba * 100} = {(payment.other) + (this.props.honba * 100)} points.
+          </div>
+          <div>
+            <button data-direction="pay"
+                    data-amount={(payment.east) + (this.props.honba * 100)}
+                    onClick={e => this.props.onClick(e.target)}>Lose as East</button>
+            Pay {payment.east} + {this.props.honba * 100} = {(payment.east) + (this.props.honba * 100)} points.
+            </div>
         </div>
       );
     }
@@ -71,18 +71,18 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-          <button data-direction="get"
-                  data-amount={payment + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Win as Other</div>
-                    <div>Receive {payment + (this.props.honba * 300)} points.</div>
-          </button>
-          <button data-direction="pay"
-                  data-amount={payment + (this.props.honba * 300)}
-                  onClick={e => this.props.onClick(e.target)}>
-                    <div>Lose to Other</div>
-                    <div>Pay {payment + (this.props.honba * 300)} points.</div>
-          </button>
+          <div>
+            <button data-direction="get"
+                    data-amount={payment + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Win as Other</button>
+            Receive {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+          </div>
+          <div>
+            <button data-direction="pay"
+                    data-amount={payment + (this.props.honba * 300)}
+                    onClick={e => this.props.onClick(e.target)}>Lose to Other</button>
+            Pay {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+          </div>
         </div>
       );
     }
