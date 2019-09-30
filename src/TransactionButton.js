@@ -40,7 +40,6 @@ class TransactionButton extends React.Component
     {
       if (this.props.limithand === "false")
       {
-        //payment = this.roundUp(basepoints) * 2 + this.roundUp(basepoints * 2);
         payment = {
           east: this.roundUp(basepoints * 2),
           other: this.roundUp(basepoints)

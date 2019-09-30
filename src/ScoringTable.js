@@ -15,7 +15,7 @@ class ScoringTable extends React.Component
     this.state = {
       show20fu: true,
       honba: 0,
-      table: 2
+      table: 0
     }
   }
 

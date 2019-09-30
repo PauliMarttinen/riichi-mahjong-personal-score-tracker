@@ -5,7 +5,7 @@
 // - Paying no-tenpai penalty or receiving tenpai bonus.
 // - Paying or receiving for cheap 1000/1500-point hands.
 //
-//Out of the two similarly named components and files, this one is a single button and has all the functionality.
+//Out of the two similarly named components and files, this one is a single button.
 
 import React from 'react';
 

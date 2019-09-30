@@ -45,7 +45,6 @@ class ConfirmTransactionPopup extends React.Component
 
   render()
   {
-    console.log(this.props);
     if (parseInt(this.props.table) === 2)
     {
       
