@@ -15,7 +15,7 @@ export class SmallTransactionsButtons extends React.Component
   render()
   {
     return (
-      <div className="keypad">
+      <div className="smalltransactions">
         <SmallTransactionsButton onClick={this.props.onClick} direction="pay" amount="1000"/>
         <SmallTransactionsButton onClick={this.props.onClick} direction="get" amount="1000"/>
         <SmallTransactionsButton onClick={this.props.onClick} direction="pay" amount="1500"/>

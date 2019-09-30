@@ -5,7 +5,7 @@ class AppInfo extends React.Component
   render()
   {
     return (
-      <div>
+      <div className="appinfo">
         <h1>Riichi Mahjong Personal Score Tracker</h1>
         <p>Quick app for keeping track of your Riichi Mahjong score!</p>
         <h2>Tabs</h2>

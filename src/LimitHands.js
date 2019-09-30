@@ -35,7 +35,7 @@ class LimitHands extends React.Component
   render()
   {
     return (
-      <div>
+      <div className="limithands">
         <Tabs value={this.state.table} fullWidth="fullWidth" onChange={this.changeTable}>
           <Tab label="East Tsumo" />
           <Tab label="East Ron" />

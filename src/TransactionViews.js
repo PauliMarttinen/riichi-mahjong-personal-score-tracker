@@ -124,7 +124,7 @@ class TransactionViews extends React.Component
     const {index} = this.state;
 
     return(
-      <div>
+      <div class="transactionviews">
         <Tabs value={index} fullWidth onChange={this.changeTab} style={styles.tabs}>
           <Tab label="Small transactions" />
           <Tab label="Scoring table" />

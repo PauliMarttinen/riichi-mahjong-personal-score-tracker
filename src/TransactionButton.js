@@ -60,7 +60,7 @@ class TransactionButton extends React.Component
           other: basepoints + (honba * 100)
         };
       }
-      result = <button data-table={table} data-paymenteast={payment.east} data-paymentother={payment.other} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba.other}<br />{paymentWithHonba.east}</button>;
+      result = <button className="transaction" data-table={table} data-paymenteast={payment.east} data-paymentother={payment.other} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba.other}<br />{paymentWithHonba.east}</button>;
     }
     else
     {
@@ -71,7 +71,7 @@ class TransactionButton extends React.Component
 
       var honbaBonus = honba * ((agari === "tsumo") ? 100 : 300);
       paymentWithHonba = payment + honbaBonus;
-      result = <button data-table={table} data-payment={payment} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba}</button>;
+      result = <button className="transaction" data-table={table} data-payment={payment} data-honba={honba} onClick={e => this.props.onClick(e.target)}>{paymentWithHonba}</button>;
     }
 
     return result;

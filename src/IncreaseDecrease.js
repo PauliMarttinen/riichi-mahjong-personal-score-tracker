@@ -55,11 +55,11 @@ class IncreaseDecrease extends React.Component
     }
     
     return (
-      <div>
+      <div className="increasedecrease">
         <div className="label">
           {this.props.label}
         </div>
-        <div>
+        <div className="action">
           <button name="decrease" onClick={e => this.onClick(e.target.name)}>–</button>
           <div>{valueDisplay}</div>
           <button name="increase" onClick={e => this.onClick(e.target.name)}>+</button>

@@ -22,10 +22,9 @@ class CustomInput extends React.Component
   render()
   {
     return (
-      <div>
-        <div>Input score according to sticks.</div>
-        <IncreaseDecrease value={this.props.points} minimum="noMinimum" increment="100" label="Honba" formatPoints="true" onClick={this.changeValue} />
-        <div><button data-direction="custom" data-amount={this.state.customPoints} onClick={e => this.props.onClick(e.target)}>Set score</button></div>
+      <div className="custominput">
+        <IncreaseDecrease value={this.props.points} minimum="noMinimum" increment="100" label="Input score." formatPoints="true" onClick={this.changeValue} />
+        <button data-direction="custom" data-amount={this.state.customPoints} onClick={e => this.props.onClick(e.target)}>Set score</button>
       </div>
     );
   }

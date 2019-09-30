@@ -42,7 +42,7 @@ class ScoringTable extends React.Component
   render()
   {
     return (
-      <div>
+      <div className="scoringtable">
         <Tabs value={this.state.table} fullWidth="fullWidth" onChange={this.changeTable}>
           <Tab label="East Tsumo"></Tab>
           <Tab label="East Ron"></Tab>
