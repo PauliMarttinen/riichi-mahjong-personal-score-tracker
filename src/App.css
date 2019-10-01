@@ -28,9 +28,10 @@ button.transaction
 
 /* TransactionViews */
 
-.transactionviews .MuiTab-wrapper
+.transactionviews
 {
   font-size: 1.5vh;
+  border: 1px solid white;
 }
 
 /* FormatPoints */

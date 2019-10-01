@@ -8,10 +8,10 @@
 
 import React from 'react';
 
-//For the swipeable views
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import SwipeableViews from 'react-swipeable-views';
+//For the tabs
+import ViewTabs from './Tabs/ViewTabs.js';
+import TabContent from './Tabs/TabContent.js';
+import Tab from './Tabs/Tab.js';
 
 //For the transaction buttons.
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
@@ -123,9 +123,36 @@ class TransactionViews extends React.Component
   {
     const {index} = this.state;
 
-    return(
+    return (
+      <div className="transactionviews">
+        <ViewTabs>
+          <Tab index="0">Small Transactions</Tab>
+          <Tab index="1">Score Table</Tab>
+          <Tab index="2">Limit Hands</Tab>
+          <Tab index="3">Custom Input</Tab>
+          <Tab index="4">App Info</Tab>
+          <TabContent index="0">
+            <SmallTransactionsButtons onClick={this.props.onClick} />
+          </TabContent>
+          <TabContent index="1">
+            <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
+          </TabContent>
+          <TabContent index="2">
+            <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
+          </TabContent>
+          <TabContent index="3">
+            <CustomInput points={this.props.points} onClick={this.props.onClick}/>
+          </TabContent>
+          <TabContent index="4">
+            <AppInfo />
+          </TabContent>
+        </ViewTabs>
+      </div>
+    );
+
+    /* return(
       <div class="transactionviews">
-        <Tabs value={index} onChange={this.changeTab} /*style={styles.tabs}*/>
+        <Tabs value={index} onChange={this.changeTab} style={styles.tabs}>
           <Tab label="Small transactions" />
           <Tab label="Scoring table" />
           <Tab label="Limit hands" />
@@ -133,19 +160,19 @@ class TransactionViews extends React.Component
           <Tab label="Info" />
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={this.changeView}>
-          <div /*style={Object.assign({}, styles.slide, styles.slide1)}*/>
+          <div style={Object.assign({}, styles.slide, styles.slide1)}>
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
-          <div /*style={Object.assign({}, styles.slide, styles.slide2)}*/>
+          <div style={Object.assign({}, styles.slide, styles.slide2)}>
             <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
           </div>
-          <div /* style={Object.assign({}, styles.slide, styles.slide3)} */>
+          <div style={Object.assign({}, styles.slide, styles.slide3)}>
             <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
           </div>
-          <div /* style={Object.assign({}, styles.slide, styles.slide4)} */>
+          <div style={Object.assign({}, styles.slide, styles.slide4)}>
             <CustomInput points={this.props.points} onClick={this.props.onClick}/>
           </div>
-          <div /* style={Object.assign({}, styles.slide, styles.slide5)} */>
+          <div style={Object.assign({}, styles.slide, styles.slide5)}>
             <AppInfo />
           </div>
         </SwipeableViews>
@@ -157,7 +184,7 @@ class TransactionViews extends React.Component
                                            honba={this.state.confirmPopup.honba} 
                                            onClick={this.confirmationClick} /> : null)}
       </div>
-    )
+    ) */
   }
 }
 
