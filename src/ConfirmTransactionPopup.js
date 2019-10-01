@@ -6,82 +6,118 @@ class ConfirmTransactionPopup extends React.Component
   {
     if (parseInt(this.props.table) === 0) //East Tsumo
     {
+      var receiveBase = payment * 3;
+      var receiveHonba = this.props.honba * 300;
+      var receiveTotal = receiveBase + receiveHonba;
+
+      var payBase = payment;
+      var payHonba = this.props.honba * 100;
+      var payTotal = payBase + payHonba;
+
       return (
         <div className="winlosechoice">
           <div className="winchoice">
             <button data-direction="get"
-                    data-amount={(payment * 3) + (this.props.honba * 300)}
+                    data-amount={receiveTotal}
                     onClick={e => this.props.onClick(e.target)}>Win as East</button>
-            Receive {payment * 3} + {this.props.honba * 300} = {(payment * 3) + (this.props.honba * 300)} points.
+            Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
-                    data-amount={payment + (this.props.honba * 100)} 
+                    data-amount={payTotal} 
                     onClick={e => this.props.onClick(e.target)}>Lose to East</button>
-            Pay {payment} + {this.props.honba * 100} = {payment + (this.props.honba * 100)} points.
+            Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
       );
     }
     if (parseInt(this.props.table) === 1) //East Ron
     {
+      var receiveBase = payment;
+      var receiveHonba = this.props.honba * 300;
+      var receiveTotal = receiveBase + receiveHonba;
+
+      var payBase = payment;
+      var payHonba = this.props.honba * 300;
+      var payTotal = payBase + payTotal;
+
       return (
         <div className="winlosechoice">
           <div className="winchoice">
             <button data-direction="get"
-                    data-amount={payment + (this.props.honba * 300)}
+                    data-amount={receiveTotal}
                     onClick={e => this.props.onClick(e.target)}>Win as East</button>
-            Receive {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+            Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
-                    data-amount={payment + (this.props.honba * 300)}
+                    data-amount={payTotal}
                     onClick={e => this.props.onClick(e.target)}>Lose to East</button>
-            Pay {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+            Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
       );
     }
     if (parseInt(this.props.table) === 2) //Other Tsumo
     {
+      var receiveBase = payment.east + payment.other * 2;
+      var receiveHonba = this.props.honba * 300;
+      var receiveTotal = receiveBase + receiveHonba;
+
+      var payOtherBase = payment.other;
+      var payOtherHonba = this.props.honba * 100;
+      var payOtherTotal = payOtherBase + payOtherHonba;
+
+      var payEastBase = payment.east;
+      var payEastHonba = this.props.honba * 100;
+      var payEastTotal = payEastBase + payEastHonba;
+
       return (
         <div className="winlosechoice">
           <div className="winchoice">
             <button data-direction="get"
-                    data-amount={(payment.east + payment.other * 2) + (this.props.honba * 300)}
+                    data-amount={receiveTotal}
                     onClick={e => this.props.onClick(e.target)}>Win as Other</button>
-            Receive {payment.east + payment.other * 2} + {this.props.honba * 300} = {(payment.east + payment.other * 2) + (this.props.honba * 300)} points.
+            Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
-                    data-amount={(payment.other) + (this.props.honba * 100)}
+                    data-amount={payOtherTotal}
                     onClick={e => this.props.onClick(e.target)}>Lose as Other</button>
-            Pay {payment.other} + {this.props.honba * 100} = {(payment.other) + (this.props.honba * 100)} points.
+            Pay {payOtherBase} + {payOtherHonba} = {payOtherTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
-                    data-amount={(payment.east) + (this.props.honba * 100)}
+                    data-amount={payEastTotal}
                     onClick={e => this.props.onClick(e.target)}>Lose as East</button>
-            Pay {payment.east} + {this.props.honba * 100} = {(payment.east) + (this.props.honba * 100)} points.
+            Pay {payEastBase} + {payEastHonba} = {payEastTotal} points.
             </div>
         </div>
       );
     }
     if (parseInt(this.props.table) === 3) //Other Ron
     {
+      var receiveBase = payment;
+      var receiveHonba = this.props.honba * 300;
+      var receiveTotal = receiveBase + receiveHonba;
+
+      var payBase = payment;
+      var payHonba = this.props.honba * 300;
+      var payTotal = payBase + payHonba;
+
       return (
         <div className="winlosechoice">
           <div className="winchoice">
             <button data-direction="get"
-                    data-amount={payment + (this.props.honba * 300)}
+                    data-amount={receiveTotal}
                     onClick={e => this.props.onClick(e.target)}>Win as Other</button>
-            Receive {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+            Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
-                    data-amount={payment + (this.props.honba * 300)}
+                    data-amount={payTotal}
                     onClick={e => this.props.onClick(e.target)}>Lose to Other</button>
-            Pay {payment} + {this.props.honba * 300} = {payment + (this.props.honba * 300)} points.
+            Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
       );
