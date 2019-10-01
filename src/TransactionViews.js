@@ -57,7 +57,7 @@ class TransactionViews extends React.Component
   {
     super();
     this.state = {
-      index: 3,
+      index: 1,
       confirmPopup: {
         show: false,
         table: 0,
@@ -125,7 +125,7 @@ class TransactionViews extends React.Component
 
     return(
       <div class="transactionviews">
-        <Tabs value={index} fullWidth onChange={this.changeTab} /*style={styles.tabs}*/>
+        <Tabs value={index} onChange={this.changeTab} /*style={styles.tabs}*/>
           <Tab label="Small transactions" />
           <Tab label="Scoring table" />
           <Tab label="Limit hands" />
