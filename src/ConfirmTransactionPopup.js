@@ -8,7 +8,7 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div className="winlosechoice">
-          <div classname="winchoice">
+          <div className="winchoice">
             <button data-direction="get"
                     data-amount={(payment * 3) + (this.props.honba * 300)}
                     onClick={e => this.props.onClick(e.target)}>Win as East</button>
@@ -27,7 +27,7 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div className="winlosechoice">
-          <div classname="winchoice">
+          <div className="winchoice">
             <button data-direction="get"
                     data-amount={payment + (this.props.honba * 300)}
                     onClick={e => this.props.onClick(e.target)}>Win as East</button>
@@ -46,7 +46,7 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div className="winlosechoice">
-          <div classname="winchoice">
+          <div className="winchoice">
             <button data-direction="get"
                     data-amount={(payment.east + payment.other * 2) + (this.props.honba * 300)}
                     onClick={e => this.props.onClick(e.target)}>Win as Other</button>
@@ -71,7 +71,7 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div className="winlosechoice">
-          <div classname="winchoice">
+          <div className="winchoice">
             <button data-direction="get"
                     data-amount={payment + (this.props.honba * 300)}
                     onClick={e => this.props.onClick(e.target)}>Win as Other</button>
@@ -93,10 +93,11 @@ class ConfirmTransactionPopup extends React.Component
     if (parseInt(this.props.table) === 2)
     {
       return (
-        <div className="popupbackdrop">
+        <div>
+          <div className="popupbackdrop"></div>
           <div className="popup">
             {this.buttons({east: parseInt(this.props.paymentEast), other: parseInt(this.props.paymentOther) })}
-            <button name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+            <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>
         </div>
       );
@@ -104,10 +105,11 @@ class ConfirmTransactionPopup extends React.Component
     else
     {
       return (
-        <div className="popupbackdrop">
+        <div>
+        <div className="popupbackdrop"></div>
           <div className="popup">
             {this.buttons(parseInt(this.props.payment))}
-            <button name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+            <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>
         </div>
       );

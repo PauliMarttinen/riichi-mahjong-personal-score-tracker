@@ -2,85 +2,176 @@
 
 /* General */
 
+body
+{
+  background: green;
+  font-size: 3vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 button
 {
-  border: 1px solid black;
-  background: #fa0;
+  color: rgb(59, 41, 5);
+  width: 100%;
+  font-size: 4vh;
+  /* border: 1px solid black; */
+  border: none;
+  background: linear-gradient(rgb(233, 185, 29), rgb(150, 120, 21));
+  border-radius: 0.5vh;
+  box-shadow: 0 0 0.75vh rgb(70, 5, 5);
 }
 
 button.transaction
 {
-
+  
 }
 
 /* TransactionViews */
 
-.transactionviews
+.transactionviews .MuiTab-wrapper
 {
-  
+  font-size: 1.5vh;
 }
 
 /* FormatPoints */
 
 .hundreds
 {
-    font-size: 80%;
+  font-size: 80%;
+  border-top: 2px solid blue;
 }
 
 /* ScoreDisplay */
 
 .absolutepoints, .relativepoints
 {
-    border: 1px solid black;
+  color: rgb(5, 51, 5);
+  background-image: linear-gradient(rgb(115, 189, 115), rgb(93, 153, 93));
+  box-shadow: 0 0 1vh brown;
+  border-radius: 1vh;
+  padding: 1vh;
+  margin: 1vh;
+  height: 3.5vh;
+  text-align: right;
 }
 
 /* ConfirmTransactionPopup */
 
 .popupbackdrop
 {
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0.5;
+  z-index: 0;
 }
 
 .popup
 {
+  color: rgb(2, 43, 2);
+  box-shadow: 0 0 3vh rgb(2, 63, 2);
+  border-radius: 1vh;
+  background: rgb(15, 136, 15);
+  /*background-image: linear-gradient(rgb(15, 136, 15), rgb(3, 107, 3));*/
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+  left: 10vw;
+  z-index: 2;
+  padding: 2vh;
+}
 
+.popup button
+{
+  margin: 0;
+  margin-bottom: 1.5vh;
+}
+
+.popup .cancel
+{
+  color: rgb(59, 41, 5);
+  background-image: linear-gradient(rgb(233, 185, 29), rgb(150, 120, 21));
+}
+.popup .cancel:active
+{
+  background-image: linear-gradient(rgb(150, 120, 21), rgb(233, 185, 29));
 }
 
 .winlosechoice
 {
-
+  font-size: 2vh;
 }
 
-.winchoice
+.winchoice, .losechoice
 {
-
+  border-bottom: 2px solid rgb(62, 160, 70);
+  margin-bottom: 3vh;
+  padding-bottom: 2.5vh;
 }
 
 .winchoice button
 {
-
+  color: rgb(5, 51, 5);
+  background-image: linear-gradient(rgb(89, 151, 89), rgb(22, 126, 22));
 }
 
-.losechoice
+.winchoice button:active
 {
-
+  background-image: linear-gradient(rgb(22, 126, 22), rgb(89, 151, 89));
 }
 
 .losechoice button
 {
+  color: rgb(63, 12, 12);
+  background-image: linear-gradient(rgb(238, 73, 73), rgb(156, 65, 65))
+}
 
+.losechoice button:active
+{
+  background-image: linear-gradient(rgb(156, 65, 65), rgb(238, 73, 73))
 }
 
 /* IncreaseDecrease */
 
 .increasedecrease
 {
-
+  color: rgb(5, 51, 5);
+  background-image: linear-gradient(rgb(115, 189, 115), rgb(93, 153, 93));
+  box-shadow: 0 0 1vh brown;
+  border-radius: 1vh;
+  text-align: center;
+  padding-bottom: 1vh;
+  margin-bottom: 5vh;
 }
 
 .increasedecrease .label
 {
+  margin-bottom: 1vh;
+}
 
+.increasedecrease .action button
+{
+  width: 10vw;
+  height: 6vh;
+}
+
+.increasedecrease .action button[name=decrease]
+{
+  margin-right: 5vw;
+}
+
+.increasedecrease .action button[name=increase]
+{
+  margin-left: 5vw;
+}
+
+.increasedecrease .action div
+{
+  display: inline-block;
+  width: 10vw;
 }
 
 .increasedecrease .action
@@ -94,24 +185,37 @@ button.transaction
 
 .smalltransactions
 {
-
+  margin-top: 5vh;
+  text-align: center;
 }
 
 .smalltransaction
 {
-
+  margin: 2vh;
+  width: 80%;
 }
 
 /* ScoringTable */
 
-.scoringtable
+.scoringtable .MuiTab-wrapper
 {
-
+  font-size: 1.5vh;
 }
 
 .scoringtable table
 {
+  width: 100%;
+  padding: 1vh;
+}
 
+.scoringtable button
+{
+  font-size: 90%;
+}
+
+.scoringtable table td
+{
+  padding: 1vh 1vw;
 }
 
 .scoringtable table th
@@ -121,26 +225,53 @@ button.transaction
 
 /* LimitHands */
 
-.limithands
+.limithands .MuiTab-wrapper
 {
+  font-size: 1.5vh;
+}
 
+.limithands button
+{
+  font-size: 90%;
 }
 
 .limithands table
 {
+  width: 100%;
+  padding: 1vh;
+}
 
+.limithands table td
+{
+  padding: 1vh 1vw;
 }
 
 /* CustomInput */
 
 .custominput
 {
+  margin-top: 5vh;
+}
 
+.custominput .increasedecrease .action div
+{
+  width: 25vw;
 }
 
 /* AppInfo */
 
 .appinfo
 {
+  color: rgb(5, 31, 5);
+  padding: 2vw;
+}
 
+.appinfo h1
+{
+  font-size: 4vh;
+}
+
+.appinfo p
+{
+  font-size: 2vh;
 }

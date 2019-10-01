@@ -125,7 +125,7 @@ class TransactionViews extends React.Component
 
     return(
       <div class="transactionviews">
-        <Tabs value={index} fullWidth onChange={this.changeTab} style={styles.tabs}>
+        <Tabs value={index} fullWidth onChange={this.changeTab} /*style={styles.tabs}*/>
           <Tab label="Small transactions" />
           <Tab label="Scoring table" />
           <Tab label="Limit hands" />
@@ -133,19 +133,19 @@ class TransactionViews extends React.Component
           <Tab label="Info" />
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={this.changeView}>
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>
+          <div /*style={Object.assign({}, styles.slide, styles.slide1)}*/>
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide2)}>
+          <div /*style={Object.assign({}, styles.slide, styles.slide2)}*/>
             <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide3)}>
+          <div /* style={Object.assign({}, styles.slide, styles.slide3)} */>
             <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide4)}>
+          <div /* style={Object.assign({}, styles.slide, styles.slide4)} */>
             <CustomInput points={this.props.points} onClick={this.props.onClick}/>
           </div>
-          <div style={Object.assign({}, styles.slide, styles.slide5)}>
+          <div /* style={Object.assign({}, styles.slide, styles.slide5)} */>
             <AppInfo />
           </div>
         </SwipeableViews>
