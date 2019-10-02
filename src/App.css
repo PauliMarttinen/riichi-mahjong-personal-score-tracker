@@ -179,6 +179,36 @@ button.transaction
 
 }
 
+/* AppInfo */
+
+.appinfo
+{
+  color: rgb(5, 31, 5);
+  padding: 2vw;
+}
+
+.appinfo h1
+{
+  font-size: 4vh;
+}
+
+.appinfo p
+{
+  font-size: 2vh;
+}
+
+
+.appinfobutton
+{
+  background-image: linear-gradient(rgb(105, 91, 230), rgb(61, 60, 129));
+  position: absolute;
+  top: 1.75vh;
+  left: 2.5vh;
+  height: 4vh;
+  width: 4vh;
+  text-align: center;
+  border-radius: 0.5vh;
+}
 /* TABS */
 
 /* SmallTransactions */
@@ -246,22 +276,4 @@ button.transaction
 .custominput .increasedecrease .action div
 {
   width: 25vw;
-}
-
-/* AppInfo */
-
-.appinfo
-{
-  color: rgb(5, 31, 5);
-  padding: 2vw;
-}
-
-.appinfo h1
-{
-  font-size: 4vh;
-}
-
-.appinfo p
-{
-  font-size: 2vh;
 }

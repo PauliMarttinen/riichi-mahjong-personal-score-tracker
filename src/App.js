@@ -1,7 +1,7 @@
 import React from 'react';
 import ScoreDisplay from './ScoreDisplay.js';
 import TransactionViews from './TransactionViews.js';
-
+import AppInfo from './AppInfo.js';
 import './App.css';
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
     };
   }
 
-  onClick = (button) => {
+  changePoints = (button) => {
     if (button.dataset.direction === "pay")
     {
       this.setState({
@@ -40,7 +40,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <ScoreDisplay zeroPoint={this.state.zeroPoint} points={this.state.points} />
-        <TransactionViews points={this.state.points + this.state.zeroPoint} onClick={this.onClick} />
+        <TransactionViews points={this.state.points + this.state.zeroPoint} onClick={this.changePoints} />
+        <AppInfo />
       </div>
     );
   }

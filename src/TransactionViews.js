@@ -22,9 +22,6 @@ import CustomInput from './CustomInput.js';
 //Confirmation popup.
 import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
 
-//App info.
-import AppInfo from './AppInfo.js';
-
 class TransactionViews extends React.Component
 {
   constructor()
@@ -93,7 +90,6 @@ class TransactionViews extends React.Component
           <Tab index="1">Score Table</Tab>
           <Tab index="2">Limit Hands</Tab>
           <Tab index="3">Custom Input</Tab>
-          <Tab index="4">App Info</Tab>
           <TabContent index="0">
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </TabContent>
@@ -105,9 +101,6 @@ class TransactionViews extends React.Component
           </TabContent>
           <TabContent index="3">
             <CustomInput points={this.props.points} onClick={this.props.onClick}/>
-          </TabContent>
-          <TabContent index="4">
-            <AppInfo />
           </TabContent>
         </ViewTabs>
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
