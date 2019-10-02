@@ -1,8 +1,9 @@
 //These are the buttons for the scoring table.
 
 import React from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+
+import ViewTabs from './Tabs/ViewTabs.js';
+import Tab from './Tabs/Tab.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 import TransactionButton from './TransactionButton.js';
@@ -26,7 +27,7 @@ class ScoringTable extends React.Component
     });
   }
 
-  changeTable = (event, newTable) =>
+  changeTable = (newTable) =>
   {
     this.setState({
       table: newTable,
@@ -43,12 +44,12 @@ class ScoringTable extends React.Component
   {
     return (
       <div className="scoringtable">
-        <Tabs value={this.state.table} fullWidth="fullWidth" onChange={this.changeTable}>
-          <Tab label="East Tsumo"></Tab>
-          <Tab label="East Ron"></Tab>
-          <Tab label="Other Tsumo"></Tab>
-          <Tab label="Other Ron"></Tab>
-        </Tabs>
+        <ViewTabs index={this.state.table} onClick={this.changeTable}>
+          <Tab index="0">East Tsumo</Tab>
+          <Tab index="1">East Ron</Tab>
+          <Tab index="2">Other Tsumo</Tab>
+          <Tab index="3">Other Ron</Tab>
+        </ViewTabs>
         <table>
           <tbody>
             <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th></tr>

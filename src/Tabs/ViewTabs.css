@@ -1,0 +1,9 @@
+.viewtabs-tab
+{
+  background-image: linear-gradient(rgb(56, 93, 197), rgb(42, 73, 158));
+  border-radius: 0.5vh;
+  margin: 2vh 1vw;
+  display: inline;
+  font-size: 50%;
+  color: rgb(3, 21, 68);
+}

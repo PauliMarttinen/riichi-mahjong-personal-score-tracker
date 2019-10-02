@@ -1,8 +1,9 @@
 //These are the buttons for the limit hands.
 
 import React from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+
+import ViewTabs from './Tabs/ViewTabs.js';
+import Tab from './Tabs/Tab.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 import TransactionButton from './TransactionButton.js';
@@ -25,10 +26,10 @@ class LimitHands extends React.Component
     });
   }
 
-  changeTable = (event, newTable) =>
+  changeTable = (newTable) =>
   {
     this.setState({
-      table: newTable
+      table: parseInt(newTable)
     });
   }
 
@@ -36,12 +37,12 @@ class LimitHands extends React.Component
   {
     return (
       <div className="limithands">
-        <Tabs value={this.state.table} fullWidth="fullWidth" onChange={this.changeTable}>
-          <Tab label="East Tsumo" />
-          <Tab label="East Ron" />
-          <Tab label="Other Tsumo" />
-          <Tab label="Other Ron" />
-        </Tabs>
+        <ViewTabs index={this.state.table} onClick={this.changeTable}>
+          <Tab index="0">East Tsumo</Tab>
+          <Tab index="1">East Ron</Tab>
+          <Tab index="2">Other Tsumo</Tab>
+          <Tab index="3">Other Ron</Tab>
+        </ViewTabs>
         <table>
           <tbody>
             <tr>
