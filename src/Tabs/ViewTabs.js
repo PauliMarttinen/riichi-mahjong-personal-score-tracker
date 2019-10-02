@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './ViewTabs.css';
+
 class ViewTabs extends React.Component
 {
   render()
@@ -27,7 +29,7 @@ class ViewTabs extends React.Component
                 )
               }
             }
-            if (value.type.name === "TabContent" && parseInt(value.props.index) === parseInt(this.props.index))
+            else if (value.type.name === "TabContent" && parseInt(value.props.index) === parseInt(this.props.index))
             {
               return (
                 <div className="viewtabs-content">

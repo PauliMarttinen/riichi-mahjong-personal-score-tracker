@@ -86,8 +86,6 @@ class TransactionViews extends React.Component
 
   render()
   {
-    const {index} = this.state;
-
     return (
       <div className="transactionviews">
         <ViewTabs index={this.state.index} onClick={this.changeTab}>
