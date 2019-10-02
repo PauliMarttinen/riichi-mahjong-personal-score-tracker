@@ -25,32 +25,6 @@ import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
 //App info.
 import AppInfo from './AppInfo.js';
 
-const styles = {
-  tabs: {
-    background: '#fff',
-  },
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: '#fff',
-  },
-  slide1: {
-    backgroundColor: '#FEA900',
-  },
-  slide2: {
-    backgroundColor: '#B3DC4A',
-  },
-  slide3: {
-    backgroundColor: '#6AC0FF',
-  },
-  slide4: {
-    backgroundColor: '#FF6AC0',
-  },
-  slide5: {
-    backgroundColor: '#B3C04A',
-  },
-};
-
 class TransactionViews extends React.Component
 {
   constructor()
@@ -147,42 +121,6 @@ class TransactionViews extends React.Component
                                            onClick={this.confirmationClick} /> : null)}
       </div>
     );
-
-    /* return(
-      <div class="transactionviews">
-        <Tabs value={index} onChange={this.changeTab} style={styles.tabs}>
-          <Tab label="Small transactions" />
-          <Tab label="Scoring table" />
-          <Tab label="Limit hands" />
-          <Tab label="Custom input" />
-          <Tab label="Info" />
-        </Tabs>
-        <SwipeableViews index={index} onChangeIndex={this.changeView}>
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>
-            <SmallTransactionsButtons onClick={this.props.onClick} />
-          </div>
-          <div style={Object.assign({}, styles.slide, styles.slide2)}>
-            <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
-          </div>
-          <div style={Object.assign({}, styles.slide, styles.slide3)}>
-            <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
-          </div>
-          <div style={Object.assign({}, styles.slide, styles.slide4)}>
-            <CustomInput points={this.props.points} onClick={this.props.onClick}/>
-          </div>
-          <div style={Object.assign({}, styles.slide, styles.slide5)}>
-            <AppInfo />
-          </div>
-        </SwipeableViews>
-        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
-                                           table={this.state.confirmPopup.table}
-                                           payment={this.state.confirmPopup.payment}
-                                           paymentEast={this.state.confirmPopup.paymentEast} 
-                                           paymentOther={this.state.confirmPopup.paymentOther}
-                                           honba={this.state.confirmPopup.honba} 
-                                           onClick={this.confirmationClick} /> : null)}
-      </div>
-    ) */
   }
 }
 
