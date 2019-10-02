@@ -69,20 +69,11 @@ class TransactionViews extends React.Component
     };
   }
 
-  changeTab = (event, value) =>
+  changeTab = (newTab) =>
   {
     this.setState(
       {
-        index: value
-      }
-    );
-  }
-
-  changeView = index =>
-  {
-    this.setState(
-      {
-        index
+        index: newTab
       }
     );
   };
@@ -125,7 +116,7 @@ class TransactionViews extends React.Component
 
     return (
       <div className="transactionviews">
-        <ViewTabs>
+        <ViewTabs index={this.state.index} onClick={this.changeTab}>
           <Tab index="0">Small Transactions</Tab>
           <Tab index="1">Score Table</Tab>
           <Tab index="2">Limit Hands</Tab>
@@ -147,6 +138,13 @@ class TransactionViews extends React.Component
             <AppInfo />
           </TabContent>
         </ViewTabs>
+        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
+                                           table={this.state.confirmPopup.table}
+                                           payment={this.state.confirmPopup.payment}
+                                           paymentEast={this.state.confirmPopup.paymentEast} 
+                                           paymentOther={this.state.confirmPopup.paymentOther}
+                                           honba={this.state.confirmPopup.honba} 
+                                           onClick={this.confirmationClick} /> : null)}
       </div>
     );
 
