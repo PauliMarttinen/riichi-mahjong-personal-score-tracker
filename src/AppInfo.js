@@ -2,19 +2,20 @@ import React from 'react';
 
 class AppInfo extends React.Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
     this.state = {
       show: false
     }
+    this.changeState = this.changeState.bind(this);
   }
 
   changeState = () =>
   {
-    this.setState({
+    this.setState(state => ({
       show: !this.state.show
-    });
+    }));
   }
 
   render()
@@ -23,7 +24,11 @@ class AppInfo extends React.Component
     {
       return (
         <div className="appinfo">
-          <div className="popupbackdrop"></div>
+          <div className="popupbackdrop">
+            <button className="appinfobutton" onClick={this.changeState}>
+              Close
+            </button>
+          </div>
           <div className="popup">
             <h1>Riichi Mahjong Personal Score Tracker</h1>
             <p>Quick app for keeping track of your Riichi Mahjong score!</p>
@@ -47,7 +52,7 @@ class AppInfo extends React.Component
     else
     {
       return (
-        <div className="appinfobutton">?</div>
+        <button className="appinfobutton" onClick={this.changeState}>?</button>
       );
     }
   }
