@@ -19,5 +19,6 @@
 
 .viewtabs-content.invisible
 {
+  display: none;
   visibility: hidden;
 }

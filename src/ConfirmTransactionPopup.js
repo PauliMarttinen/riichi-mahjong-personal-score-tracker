@@ -4,15 +4,20 @@ class ConfirmTransactionPopup extends React.Component
 {
   buttons = (payment) =>
   {
+    var receiveBase, receiveHonba, receiveTotal;
+    var payBase, payHonba, payTotal;
+    var payOtherBase, payOtherHonba, payOtherTotal;
+    var payEastBase, payEastHonba, payEastTotal;
+
     if (parseInt(this.props.table) === 0) //East Tsumo
     {
-      var receiveBase = payment * 3;
-      var receiveHonba = this.props.honba * 300;
-      var receiveTotal = receiveBase + receiveHonba;
+      receiveBase = payment * 3;
+      receiveHonba = this.props.honba * 300;
+      receiveTotal = receiveBase + receiveHonba;
 
-      var payBase = payment;
-      var payHonba = this.props.honba * 100;
-      var payTotal = payBase + payHonba;
+      payBase = payment;
+      payHonba = this.props.honba * 100;
+      payTotal = payBase + payHonba;
 
       return (
         <div className="winlosechoice">
@@ -33,13 +38,13 @@ class ConfirmTransactionPopup extends React.Component
     }
     if (parseInt(this.props.table) === 1) //East Ron
     {
-      var receiveBase = payment;
-      var receiveHonba = this.props.honba * 300;
-      var receiveTotal = receiveBase + receiveHonba;
+      receiveBase = payment;
+      receiveHonba = this.props.honba * 300;
+      receiveTotal = receiveBase + receiveHonba;
 
-      var payBase = payment;
-      var payHonba = this.props.honba * 300;
-      var payTotal = payBase + payHonba;
+      payBase = payment;
+      payHonba = this.props.honba * 300;
+      payTotal = payBase + payHonba;
 
       return (
         <div className="winlosechoice">
@@ -60,17 +65,17 @@ class ConfirmTransactionPopup extends React.Component
     }
     if (parseInt(this.props.table) === 2) //Other Tsumo
     {
-      var receiveBase = payment.east + payment.other * 2;
-      var receiveHonba = this.props.honba * 300;
-      var receiveTotal = receiveBase + receiveHonba;
+      receiveBase = payment.east + payment.other * 2;
+      receiveHonba = this.props.honba * 300;
+      receiveTotal = receiveBase + receiveHonba;
 
-      var payOtherBase = payment.other;
-      var payOtherHonba = this.props.honba * 100;
-      var payOtherTotal = payOtherBase + payOtherHonba;
+      payOtherBase = payment.other;
+      payOtherHonba = this.props.honba * 100;
+      payOtherTotal = payOtherBase + payOtherHonba;
 
-      var payEastBase = payment.east;
-      var payEastHonba = this.props.honba * 100;
-      var payEastTotal = payEastBase + payEastHonba;
+      payEastBase = payment.east;
+      payEastHonba = this.props.honba * 100;
+      payEastTotal = payEastBase + payEastHonba;
 
       return (
         <div className="winlosechoice">
@@ -97,13 +102,13 @@ class ConfirmTransactionPopup extends React.Component
     }
     if (parseInt(this.props.table) === 3) //Other Ron
     {
-      var receiveBase = payment;
-      var receiveHonba = this.props.honba * 300;
-      var receiveTotal = receiveBase + receiveHonba;
+      receiveBase = payment;
+      receiveHonba = this.props.honba * 300;
+      receiveTotal = receiveBase + receiveHonba;
 
-      var payBase = payment;
-      var payHonba = this.props.honba * 300;
-      var payTotal = payBase + payHonba;
+      payBase = payment;
+      payHonba = this.props.honba * 300;
+      payTotal = payBase + payHonba;
 
       return (
         <div className="winlosechoice">
@@ -131,7 +136,7 @@ class ConfirmTransactionPopup extends React.Component
       return (
         <div>
           <div className="popupbackdrop"></div>
-          <div className="popup">
+          <div className="confirmtransactionpopup popup">
             {this.buttons({east: parseInt(this.props.paymentEast), other: parseInt(this.props.paymentOther) })}
             <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>
@@ -143,7 +148,7 @@ class ConfirmTransactionPopup extends React.Component
       return (
         <div>
         <div className="popupbackdrop"></div>
-          <div className="popup">
+          <div className="confirmtransactionpopup popup">
             {this.buttons(parseInt(this.props.payment))}
             <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>

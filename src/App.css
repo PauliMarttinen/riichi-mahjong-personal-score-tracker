@@ -28,10 +28,10 @@ button
   box-shadow: 0 0 0.75vh rgb(70, 5, 5);
 }
 
-button.transaction
+/* button.transaction
 {
   
-}
+} */
 
 /* TransactionViews */
 
@@ -79,7 +79,6 @@ button.transaction
   left: 0;
   background: black;
   opacity: 0.5;
-  z-index: 1;
 }
 
 .popup
@@ -111,6 +110,11 @@ button.transaction
 .popup .cancel:active
 {
   background-image: linear-gradient(rgb(150, 120, 21), rgb(233, 185, 29));
+}
+
+.confirmtransactionpopup
+{
+  top: 30vh;
 }
 
 .winlosechoice
@@ -202,10 +206,10 @@ button.transaction
   width: 10vw;
 }
 
-.increasedecrease .action
+/* .increasedecrease .action
 {
 
-}
+} */
 
 /* AppInfo */
 
@@ -276,27 +280,27 @@ button.transaction
   padding: 1vh;
 }
 
-.scoringtable button
+/* .scoringtable button
 {
   
-}
+} */
 
 .scoringtable table td
 {
   padding: 1vh 1vw;
 }
 
-.scoringtable table th
+/* .scoringtable table th
 {
 
-}
+} */
 
 /* LimitHands */
 
-.limithands button
+/* .limithands button
 {
   
-}
+} */
 
 .limithands table
 {

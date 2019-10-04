@@ -7,6 +7,7 @@ class ViewTabs extends React.Component
   render()
   {
     var tabs = [];
+    var contents = [];
     var selectedTab = this.props.index;
 
     for (var child = 0; child < this.props.children.length; child++)
@@ -15,17 +16,40 @@ class ViewTabs extends React.Component
       {
         if (parseInt(this.props.index) === child)
         {
-          tabs.push(<div key={child} className="viewtabs-tab viewtabs-selected">{this.props.children[child].props.children}</div>);
+          tabs.push(
+            <div key={child} className="viewtabs-tab viewtabs-selected">
+              {this.props.children[child].props.children}
+            </div>
+          );
           selectedTab = child;
         }
         else
         {
-          tabs.push(<div key={child} className="viewtabs-tab" data-index={child} onClick={e => this.props.onClick(e.target.dataset.index)}>{this.props.children[child].props.children}</div>);
+          tabs.push(
+            <div key={child} className="viewtabs-tab" data-index={child} onClick={e => this.props.onClick(e.target.dataset.index)}>
+              {this.props.children[child].props.children}
+            </div>
+          );
         }
       }
-      else
-      {
-        break;
+      else if (this.props.children[child].type.name === "TabContent")
+      {;
+        if (child - selectedTab === tabs.length)
+        {
+          contents.push(
+            <div key={child} className="viewtabs-content" data-index={child}>
+              {this.props.children[child].props.children}
+            </div>
+          );
+        }
+        else
+        {
+          contents.push(
+            <div key={child} className="viewtabs-content invisible" data-index={child}>
+              {this.props.children[child].props.children}
+            </div>
+          );
+        }
       }
     }
 
@@ -35,7 +59,7 @@ class ViewTabs extends React.Component
           {tabs}
         </div>
         <div className="viewtabs-content">
-          {this.props.children[child+selectedTab]}
+          {contents}
         </div>
       </div>
     );

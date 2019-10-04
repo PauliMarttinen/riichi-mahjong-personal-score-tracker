@@ -84,32 +84,34 @@ class TransactionViews extends React.Component
   render()
   {
     return (
-      <div className="transactionviews">
-        <ViewTabs index={this.state.index} onClick={this.changeTab}>
-          <Tab>Small Transactions</Tab>
-          <Tab>Score Table</Tab>
-          <Tab>Limit Hands</Tab>
-          <Tab>Custom Input</Tab>
-          <TabContent>
-            <SmallTransactionsButtons onClick={this.props.onClick} />
-          </TabContent>
-          <TabContent>
-            <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
-          </TabContent>
-          <TabContent>
-            <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
-          </TabContent>
-          <TabContent>
-            <CustomInput points={this.props.points} onClick={this.props.onClick}/>
-          </TabContent>
-        </ViewTabs>
+      <div>
+        <div className="transactionviews">
+          <ViewTabs index={this.state.index} onClick={this.changeTab}>
+            <Tab>Small Transactions</Tab>
+            <Tab>Score Table</Tab>
+            <Tab>Limit Hands</Tab>
+            <Tab>Custom Input</Tab>
+            <TabContent>
+              <SmallTransactionsButtons onClick={this.props.onClick} />
+            </TabContent>
+            <TabContent>
+              <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
+            </TabContent>
+            <TabContent>
+              <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
+            </TabContent>
+            <TabContent>
+              <CustomInput points={this.props.points} onClick={this.props.onClick}/>
+            </TabContent>
+          </ViewTabs>
+        </div>
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
-                                           table={this.state.confirmPopup.table}
-                                           payment={this.state.confirmPopup.payment}
-                                           paymentEast={this.state.confirmPopup.paymentEast} 
-                                           paymentOther={this.state.confirmPopup.paymentOther}
-                                           honba={this.state.confirmPopup.honba} 
-                                           onClick={this.confirmationClick} /> : null)}
+                                            table={this.state.confirmPopup.table}
+                                            payment={this.state.confirmPopup.payment}
+                                            paymentEast={this.state.confirmPopup.paymentEast} 
+                                            paymentOther={this.state.confirmPopup.paymentOther}
+                                            honba={this.state.confirmPopup.honba} 
+                                            onClick={this.confirmationClick} /> : null)}
       </div>
     );
   }
