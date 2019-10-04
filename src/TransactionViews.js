@@ -86,20 +86,20 @@ class TransactionViews extends React.Component
     return (
       <div className="transactionviews">
         <ViewTabs index={this.state.index} onClick={this.changeTab}>
-          <Tab index="0">Small Transactions</Tab>
-          <Tab index="1">Score Table</Tab>
-          <Tab index="2">Limit Hands</Tab>
-          <Tab index="3">Custom Input</Tab>
-          <TabContent index="0">
+          <Tab>Small Transactions</Tab>
+          <Tab>Score Table</Tab>
+          <Tab>Limit Hands</Tab>
+          <Tab>Custom Input</Tab>
+          <TabContent>
             <SmallTransactionsButtons onClick={this.props.onClick} />
           </TabContent>
-          <TabContent index="1">
+          <TabContent>
             <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
           </TabContent>
-          <TabContent index="2">
+          <TabContent>
             <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
           </TabContent>
-          <TabContent index="3">
+          <TabContent>
             <CustomInput points={this.props.points} onClick={this.props.onClick}/>
           </TabContent>
         </ViewTabs>

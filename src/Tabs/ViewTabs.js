@@ -6,38 +6,37 @@ class ViewTabs extends React.Component
 {
   render()
   {
+    var tabs = [];
+    var selectedTab = this.props.index;
+
+    for (var child = 0; child < this.props.children.length; child++)
+    {
+      if (this.props.children[child].type.name === "Tab")
+      {
+        if (parseInt(this.props.index) === child)
+        {
+          tabs.push(<div key={child} className="viewtabs-tab viewtabs-selected">{this.props.children[child].props.children}</div>);
+          selectedTab = child;
+        }
+        else
+        {
+          tabs.push(<div key={child} className="viewtabs-tab" data-index={child} onClick={e => this.props.onClick(e.target.dataset.index)}>{this.props.children[child].props.children}</div>);
+        }
+      }
+      else
+      {
+        break;
+      }
+    }
+
     return (
-      <div className="viewtabs-container">
-        {this.props.children.map((value, index) =>
-          {
-            if (value.type.name === "Tab")
-            {
-              if (parseInt(value.props.index) === parseInt(this.props.index))
-              {
-                return (
-                  <div className="viewtabs-tab viewtabs-selected">
-                    {value.props.children}
-                  </div>
-                );
-              }
-              else
-              {
-                return (
-                  <div className="viewtabs-tab" data-index={value.props.index} onClick={e => this.props.onClick(e.target.dataset.index)}>
-                    {value.props.children}
-                  </div>
-                )
-              }
-            }
-            else if (value.type.name === "TabContent" && parseInt(value.props.index) === parseInt(this.props.index))
-            {
-              return (
-                <div className="viewtabs-content">
-                  {value.props.children}
-                </div>
-              );
-            }
-          })}
+      <div className="viewtabs">
+        <div className="viewtabs-tabs">
+          {tabs}
+        </div>
+        <div className="viewtabs-content">
+          {this.props.children[child+selectedTab]}
+        </div>
       </div>
     );
   }

@@ -13,6 +13,7 @@ body
   bottom: 0;
   left: 0;
   overflow: hidden;
+  padding: 0;
 }
 
 button
@@ -36,7 +37,7 @@ button.transaction
 
 .transactionviews
 {
-  border: 1px solid white;
+  border-radius: 1vh;
   position: absolute;
   top: 14vh;
   right: 0;
@@ -78,7 +79,7 @@ button.transaction
   left: 0;
   background: black;
   opacity: 0.5;
-  z-index: 0;
+  z-index: 1;
 }
 
 .popup
@@ -151,7 +152,7 @@ button.transaction
 .increasedecrease
 {
   color: rgb(5, 51, 5);
-  background-image: linear-gradient(rgb(115, 189, 115), rgb(93, 153, 93));
+  background-image: linear-gradient(rgb(115, 189, 115), rgb(79, 129, 79));
   box-shadow: 0 0 1vh brown;
   border-radius: 1vh;
   text-align: center;
@@ -164,11 +165,14 @@ button.transaction
   right: 0;
   bottom: 0;
   left: 0;
+  border-radius: 0;
 }
 
 .custominput .increasedecrease
 {
   margin-bottom: 5vh;
+  width: 80%;
+  margin: 0 auto 5vh auto;
 }
 
 .increasedecrease .label
@@ -310,9 +314,15 @@ button.transaction
 .custominput
 {
   margin-top: 5vh;
+  text-align: center;
 }
 
 .custominput .increasedecrease .action div
 {
   width: 25vw;
+}
+
+.custominput button
+{
+  width: 80%;
 }

@@ -39,7 +39,7 @@ class ConfirmTransactionPopup extends React.Component
 
       var payBase = payment;
       var payHonba = this.props.honba * 300;
-      var payTotal = payBase + payTotal;
+      var payTotal = payBase + payHonba;
 
       return (
         <div className="winlosechoice">
