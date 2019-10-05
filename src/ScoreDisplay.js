@@ -12,15 +12,15 @@ import formatPoints from './FormatPoints.js';
 
 class ScoreDisplay extends React.Component
 {
-    render()
-    {
-        return (
-            <div className="scoredisplay">
-                <div className="absolutepoints">{formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
-                <div className="relativepoints">{formatPoints(parseInt(this.props.points))}</div>
-            </div>
-        );
-    }
+  render()
+  {
+    return (
+      <div className="scoredisplay">
+        <div className="absolutepoints">{formatPoints(parseInt(this.props.zeroPoint) + parseInt(this.props.points))}</div>
+        <div className="relativepoints">{formatPoints(parseInt(this.props.points))}</div>
+      </div>
+    );
+  }
 }
 
 export default ScoreDisplay;
