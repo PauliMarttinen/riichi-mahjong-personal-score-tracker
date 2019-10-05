@@ -3,7 +3,6 @@
 import React from 'react';
 
 import ViewTabs from './Tabs/ViewTabs.js';
-import Tab from './Tabs/Tab.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 import TransactionButton from './TransactionButton.js';
@@ -38,10 +37,10 @@ class LimitHands extends React.Component
     return (
       <div className="limithands">
         <ViewTabs index={this.state.table} onClick={this.changeTable}>
-          <Tab index="0">East Tsumo</Tab>
-          <Tab index="1">East Ron</Tab>
-          <Tab index="2">Other Tsumo</Tab>
-          <Tab index="3">Other Ron</Tab>
+          <div className="tab">East Tsumo</div>
+          <div className="tab">East Ron</div>
+          <div className="tab">Other Tsumo</div>
+          <div className="tab">Other Ron</div>
         </ViewTabs>
         <table>
           <tbody>

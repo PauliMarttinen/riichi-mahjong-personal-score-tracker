@@ -12,7 +12,7 @@ class ViewTabs extends React.Component
 
     for (var child = 0; child < this.props.children.length; child++)
     {
-      if (this.props.children[child].type.name === "Tab")
+      if (this.props.children[child].props.className === "tab")
       {
         if (parseInt(this.props.index) === child)
         {
@@ -32,8 +32,8 @@ class ViewTabs extends React.Component
           );
         }
       }
-      else if (this.props.children[child].type.name === "TabContent")
-      {;
+      else if (this.props.children[child].props.className === "tabcontent")
+      {
         if (child - selectedTab === tabs.length)
         {
           contents.push(

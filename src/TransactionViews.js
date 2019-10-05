@@ -10,8 +10,6 @@ import React from 'react';
 
 //For the tabs
 import ViewTabs from './Tabs/ViewTabs.js';
-import TabContent from './Tabs/TabContent.js';
-import Tab from './Tabs/Tab.js';
 
 //For the transaction buttons.
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
@@ -87,22 +85,22 @@ class TransactionViews extends React.Component
       <div>
         <div className="transactionviews">
           <ViewTabs index={this.state.index} onClick={this.changeTab}>
-            <Tab>Small Transactions</Tab>
-            <Tab>Score Table</Tab>
-            <Tab>Limit Hands</Tab>
-            <Tab>Custom Input</Tab>
-            <TabContent>
+            <div className="tab">Small Transactions</div>
+            <div className="tab">Score Table</div>
+            <div className="tab">Limit Hands</div>
+            <div className="tab">Custom Input</div>
+            <div className="tabcontent">
               <SmallTransactionsButtons onClick={this.props.onClick} />
-            </TabContent>
-            <TabContent>
+            </div>
+            <div className="tabcontent">
               <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
-            </TabContent>
-            <TabContent>
+            </div>
+            <div className="tabcontent">
               <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
-            </TabContent>
-            <TabContent>
+            </div>
+            <div className="tabcontent">
               <CustomInput points={this.props.points} onClick={this.props.onClick}/>
-            </TabContent>
+            </div>
           </ViewTabs>
         </div>
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
