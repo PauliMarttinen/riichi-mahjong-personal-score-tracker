@@ -28,6 +28,7 @@ class ScoringTable extends React.Component
 
   changeTable = (newTable) =>
   {
+    newTable = parseInt(newTable);
     this.setState({
       table: newTable,
       show20fu: (newTable === 0 || newTable === 2) ? true : false
