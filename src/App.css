@@ -21,17 +21,16 @@ button
   color: rgb(59, 41, 5);
   width: 100%;
   font-size: 3vh;
-  /* border: 1px solid black; */
   border: none;
   background: linear-gradient(rgb(233, 185, 29), rgb(150, 120, 21));
   border-radius: 0.5vh;
   box-shadow: 0 0 0.75vh rgb(70, 5, 5);
 }
 
-/* button.transaction
+button:active
 {
-  
-} */
+  border: none;
+}
 
 /* TransactionViews */
 
@@ -87,7 +86,6 @@ button
   box-shadow: 0 0 3vh rgb(2, 63, 2);
   border-radius: 1vh;
   background: rgb(15, 136, 15);
-  /*background-image: linear-gradient(rgb(15, 136, 15), rgb(3, 107, 3));*/
   position: absolute;
   top: 10vh;
   right: 10vw;
@@ -112,14 +110,14 @@ button
   background-image: linear-gradient(rgb(150, 120, 21), rgb(233, 185, 29));
 }
 
-.confirmtransactionpopup
-{
-  top: 30vh;
-}
-
 .winlosechoice
 {
   font-size: 2vh;
+}
+
+.winchoice button, .losechoice button
+{
+  height: 5vh;
 }
 
 .winchoice, .losechoice
@@ -206,11 +204,6 @@ button
   width: 10vw;
 }
 
-/* .increasedecrease .action
-{
-
-} */
-
 /* AppInfo */
 
 .appinfo
@@ -254,6 +247,7 @@ button
 {
   bottom: 10vh;
   overflow: scroll;
+  
 }
 
 /* TABS */
@@ -280,27 +274,12 @@ button
   padding: 1vh;
 }
 
-/* .scoringtable button
-{
-  
-} */
-
 .scoringtable table td
 {
   padding: 1vh 1vw;
 }
 
-/* .scoringtable table th
-{
-
-} */
-
 /* LimitHands */
-
-/* .limithands button
-{
-  
-} */
 
 .limithands table
 {
