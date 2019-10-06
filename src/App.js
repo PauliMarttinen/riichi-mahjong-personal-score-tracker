@@ -2,7 +2,8 @@ import React from 'react';
 import ScoreDisplay from './ScoreDisplay.js';
 import TransactionViews from './TransactionViews.js';
 import AppInfo from './AppInfo.js';
-import './App.css';
+
+import './css/App.css';
 
 class App extends React.Component {
   constructor()

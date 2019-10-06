@@ -85,7 +85,7 @@ class TransactionViews extends React.Component
   render()
   {
     return (
-      <div>
+      <div className="transactionviewswrapper">
         <div className="transactionviews">
           <ViewTabs index={this.state.index} onClick={this.changeTab}>
             <div className="tab">Small Transactions</div>
