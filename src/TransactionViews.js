@@ -33,7 +33,8 @@ class TransactionViews extends React.Component
         honba: 0,
         payment: 0,
         paymentEast: 0,
-        paymentOther: 0
+        paymentOther: 0,
+        handSize: ""
       }
     };
   }
@@ -56,7 +57,8 @@ class TransactionViews extends React.Component
         honba: button.dataset.honba,
         payment: button.dataset.payment,
         paymentEast: button.dataset.paymenteast,
-        paymentOther: button.dataset.paymentother
+        paymentOther: button.dataset.paymentother,
+        handSize: button.dataset.handsize
       }
     });
   }
@@ -74,7 +76,8 @@ class TransactionViews extends React.Component
         table: 0,
         payment: 0,
         paymentEast: 0,
-        paymentOther: 0
+        paymentOther: 0,
+        handSize: ""
       }
     });
   }
@@ -105,6 +108,7 @@ class TransactionViews extends React.Component
         </div>
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
                                             table={this.state.confirmPopup.table}
+                                            handsize={this.state.confirmPopup.handSize}
                                             payment={this.state.confirmPopup.payment}
                                             paymentEast={this.state.confirmPopup.paymentEast} 
                                             paymentOther={this.state.confirmPopup.paymentOther}

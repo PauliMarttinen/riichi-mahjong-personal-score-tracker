@@ -82,7 +82,7 @@ button:active
 
 .popup
 {
-  color: rgb(2, 43, 2);
+  color: rgb(2, 53, 2);
   box-shadow: 0 0 3vh rgb(2, 63, 2);
   border-radius: 1vh;
   background: rgb(15, 136, 15);
@@ -91,7 +91,7 @@ button:active
   right: 10vw;
   left: 10vw;
   z-index: 2;
-  padding: 2vh;
+  padding: 2vh 5vw 6vh 5vw;
 }
 
 .popup button
@@ -105,9 +105,16 @@ button:active
   color: rgb(59, 41, 5);
   background-image: linear-gradient(rgb(233, 185, 29), rgb(150, 120, 21));
 }
+
 .popup .cancel:active
 {
   background-image: linear-gradient(rgb(150, 120, 21), rgb(233, 185, 29));
+}
+
+.confirmtransactionpopup h1
+{
+  font-size: 3.5vh;
+  text-align: center;
 }
 
 .winlosechoice

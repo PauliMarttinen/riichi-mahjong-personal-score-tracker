@@ -131,12 +131,31 @@ class ConfirmTransactionPopup extends React.Component
 
   render()
   {
+    var winType;
+    if (parseInt(this.props.table) === 0)
+    {
+      winType = "East Tsumo";
+    }
+    if (parseInt(this.props.table) === 1)
+    {
+      winType = "East Ron";
+    }
+    if (parseInt(this.props.table) === 2)
+    {
+      winType = "Other Tsumo";
+    }
+    if (parseInt(this.props.table) === 3)
+    {
+      winType = "Other Ron";
+    }
+
     if (parseInt(this.props.table) === 2)
     {
       return (
         <div>
           <div className="popupbackdrop"></div>
           <div className="confirmtransactionpopup popup">
+            <h1 className="confirmtransactionpopup title">{winType}<br />{this.props.handsize}</h1>
             {this.buttons({east: parseInt(this.props.paymentEast), other: parseInt(this.props.paymentOther) })}
             <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>
@@ -149,6 +168,7 @@ class ConfirmTransactionPopup extends React.Component
         <div>
         <div className="popupbackdrop"></div>
           <div className="confirmtransactionpopup popup">
+            <h1 className="confirmtransactionpopup title">{winType}<br />{this.props.handsize}</h1>
             {this.buttons(parseInt(this.props.payment))}
             <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
           </div>
