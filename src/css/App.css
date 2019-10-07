@@ -180,7 +180,7 @@ button:active
 .custominput .increasedecrease
 {
   margin-bottom: 5vh;
-  width: 80%;
+  width: 90%;
   margin: 0 auto 5vh auto;
 }
 
@@ -195,12 +195,12 @@ button:active
   height: 6vh;
 }
 
-.increasedecrease .action button[name=decrease]
+.increasedecrease .action .decrease
 {
   margin-right: 5vw;
 }
 
-.increasedecrease .action button[name=increase]
+.increasedecrease .action .increase
 {
   margin-left: 5vw;
 }

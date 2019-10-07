@@ -23,7 +23,7 @@ class CustomInput extends React.Component
   {
     return (
       <div className="custominput">
-        <IncreaseDecrease value={this.props.points} minimum="noMinimum" increment="100" label="Input custom score" formatPoints="true" onClick={this.changeValue} />
+        <IncreaseDecrease value={this.props.points} minimum="noMinimum" increment="100" fastButtons="true" label="Input custom score" formatPoints="true" onClick={this.changeValue} />
         <button data-direction="custom" data-amount={this.state.customPoints} onClick={e => this.props.onClick(e.target)}>Set score</button>
       </div>
     );

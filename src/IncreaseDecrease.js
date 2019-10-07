@@ -27,13 +27,13 @@ class IncreaseDecrease extends React.Component
     }
 
     var newValue = this.state.value;
-    if (action === "decrease" && ((this.state.value - increment) >= minimum || minimum === "noMinimum"))
+    if ((action === "decrease" || action === "fastdecrease") && ((this.state.value - increment) >= minimum || minimum === "noMinimum"))
     {
-      newValue = this.state.value - increment
+      newValue = this.state.value - increment * ((action === "fastdecrease") ? 10 : 1);
     }
-    else if (action === "increase")
+    else if (action === "increase" || action === "fastincrease")
     {
-      newValue = this.state.value + increment
+      newValue = this.state.value + increment * ((action === "fastincrease") ? 10 : 1);
     }
 
     this.setState({
@@ -44,7 +44,7 @@ class IncreaseDecrease extends React.Component
 
   render()
   {
-    var valueDisplay;
+    var valueDisplay, fastButtons;
     if (this.props.formatPoints === "true")
     {
       valueDisplay = formatPoints(this.state.value);
@@ -54,15 +54,26 @@ class IncreaseDecrease extends React.Component
       valueDisplay = this.state.value;
     }
     
+    if (this.props.fastButtons === "true")
+    {
+      fastButtons = true;
+    }
+    else
+    {
+      fastButtons = false;
+    }
+
     return (
       <div className="increasedecrease">
         <div className="label">
           {this.props.label}
         </div>
         <div className="action">
-          <button name="decrease" onClick={e => this.onClick(e.target.name)}>–</button>
+          {(fastButtons) ? <button className="decrease fast" name="fastdecrease" onClick={e => this.onClick(e.target.name)}>–</button> : null }
+          <button className="decrease" name="decrease" onClick={e => this.onClick(e.target.name)}>–</button>
           <div>{valueDisplay}</div>
-          <button name="increase" onClick={e => this.onClick(e.target.name)}>+</button>
+          <button className="increase" name="increase" onClick={e => this.onClick(e.target.name)}>+</button>
+          {(fastButtons) ? <button className="increase fast" name="fastincrease" onClick={e => this.onClick(e.target.name)}>+</button> : null }
         </div>
       </div>
     );
