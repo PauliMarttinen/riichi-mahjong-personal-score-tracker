@@ -31,7 +31,7 @@ class App extends React.Component {
     if (button.dataset.direction === "custom")
     {
       this.setState({
-        points: button.dataset.amount - this.state.zeroPoint
+        points: parseInt(button.dataset.amount) - this.state.zeroPoint
       });
     }
   }

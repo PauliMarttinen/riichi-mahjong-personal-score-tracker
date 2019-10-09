@@ -17,16 +17,20 @@ import LimitHands from './LimitHands.js';
 import ScoringTable from './ScoringTable.js';
 import CustomInput from './CustomInput.js';
 
+import IncreaseDecrease from './IncreaseDecrease.js';
+
 //Confirmation popup.
 import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
 
 class TransactionViews extends React.Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
     this.state = {
       index: 1,
+      honba: 0,
+      points: this.props.points,
       confirmPopup: {
         show: false,
         table: 0,
@@ -43,7 +47,7 @@ class TransactionViews extends React.Component
   {
     this.setState(
       {
-        index: newTab
+        index: parseInt(newTab)
       }
     );
   };
@@ -70,6 +74,7 @@ class TransactionViews extends React.Component
       this.props.onClick(button);
     }
     this.setState({
+      honba: 0,
       confirmPopup: {
         show: false,
         honba: 0,
@@ -79,6 +84,13 @@ class TransactionViews extends React.Component
         paymentOther: 0,
         handSize: ""
       }
+    });
+  }
+
+  changeHonba = (newHonba) =>
+  {
+    this.setState({
+      honba: parseInt(newHonba)
     });
   }
 
@@ -96,16 +108,19 @@ class TransactionViews extends React.Component
               <SmallTransactionsButtons onClick={this.props.onClick} />
             </div>
             <div className="tabcontent">
-              <ScoringTable transactionConfirmation={this.askToConfirmTransaction} />
+              <ScoringTable transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <LimitHands transactionConfirmation={this.askToConfirmTransaction} />
+              <LimitHands transactionConfirmation={this.askToConfirmTransaction}  honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <CustomInput points={this.props.points} onClick={this.props.onClick}/>
+              <CustomInput points={this.state.points} onClick={this.props.onClick}/>
             </div>
           </ViewTabs>
         </div>
+        {(this.state.index === 1 || this.state.index === 2) ?
+          <IncreaseDecrease value={this.state.honba} minimum="0" increment="1" label="Honba" onClick={this.changeHonba} />
+          : null }
         {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
                                             table={this.state.confirmPopup.table}
                                             handsize={this.state.confirmPopup.handSize}

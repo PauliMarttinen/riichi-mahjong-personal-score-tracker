@@ -51,7 +51,7 @@ class IncreaseDecrease extends React.Component
     }
     else
     {
-      valueDisplay = this.state.value;
+      valueDisplay = this.props.value;
     }
     
     if (this.props.fastButtons === "true")
