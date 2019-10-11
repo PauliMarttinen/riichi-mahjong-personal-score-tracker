@@ -13,18 +13,9 @@ class ScoringTable extends React.Component
     super(props);
     this.state = {
       show20fu: true,
-      honba: parseInt(this.props.honba),
       table: 0
     }
-    console.log(this.state.honba);
   }
-
-  /* changeHonba = (newHonba) =>
-  {
-    this.setState({
-      honba: newHonba
-    });
-  } */
 
   changeTable = (newTable) =>
   {
@@ -129,7 +120,6 @@ class ScoringTable extends React.Component
       </div>
     );
   }
-  /* <IncreaseDecrease value={this.state.honba} minimum="0" increment="1" label="Honba" onClick={this.changeHonba} /> */
 }
 
 export default ScoringTable;

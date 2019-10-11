@@ -12,16 +12,8 @@ class LimitHands extends React.Component
   {
     super(props);
     this.state = {
-      honba: parseInt(this.props.honba),
       table: 0
     }
-  }
-
-  changeHonba = (newHonba) =>
-  {
-    this.setState({
-      honba: newHonba
-    });
   }
 
   changeTable = (newTable) =>
@@ -74,7 +66,6 @@ class LimitHands extends React.Component
       </div>
     );
   }
-  /* <IncreaseDecrease value={this.state.honba} minimum="0" increment="1" label="Honba" onClick={this.changeHonba} /> */
 }
 
 export default LimitHands;

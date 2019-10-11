@@ -26,14 +26,14 @@ class IncreaseDecrease extends React.Component
       minimum = parseInt(this.props.minimum);
     }
 
-    var newValue = this.state.value;
-    if ((action === "decrease" || action === "fastdecrease") && ((this.state.value - increment) >= minimum || minimum === "noMinimum"))
+    var newValue = this.props.value;
+    if ((action === "decrease" || action === "fastdecrease") && ((this.props.value - increment) >= minimum || minimum === "noMinimum"))
     {
-      newValue = this.state.value - increment * ((action === "fastdecrease") ? 10 : 1);
+      newValue = this.props.value - increment * ((action === "fastdecrease") ? 10 : 1);
     }
     else if (action === "increase" || action === "fastincrease")
     {
-      newValue = this.state.value + increment * ((action === "fastincrease") ? 10 : 1);
+      newValue = this.props.value + increment * ((action === "fastincrease") ? 10 : 1);
     }
 
     this.setState({
@@ -47,11 +47,11 @@ class IncreaseDecrease extends React.Component
     var valueDisplay, fastButtons;
     if (this.props.formatPoints === "true")
     {
-      valueDisplay = formatPoints(this.state.value);
+      valueDisplay = formatPoints(parseInt(this.state.value));
     }
     else
     {
-      valueDisplay = this.props.value;
+      valueDisplay = parseInt(this.props.value);
     }
     
     if (this.props.fastButtons === "true")
