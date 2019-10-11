@@ -16,7 +16,7 @@ class IncreaseDecrease extends React.Component
   onClick = (action) =>
   {
     var increment = parseInt(this.props.increment);
-    var minimum;
+    var minimum, maximum;
     if (this.props.minimum === "noMinimum")
     {
       minimum = "noMinimum";
@@ -26,14 +26,50 @@ class IncreaseDecrease extends React.Component
       minimum = parseInt(this.props.minimum);
     }
 
-    var newValue = this.props.value;
-    if ((action === "decrease" || action === "fastdecrease") && ((this.props.value - increment) >= minimum || minimum === "noMinimum"))
+    //Neither need for the IncreaseDecrease component within this Mahjong app requires a maximum, but
+    //I felt like this component needs a maximum feature for completeness sake.
+    if (this.props.maximum === "noMaximum")
     {
-      newValue = this.props.value - increment * ((action === "fastdecrease") ? 10 : 1);
+      maximum = "noMaximum";
     }
-    else if (action === "increase" || action === "fastincrease")
+    else
     {
-      newValue = this.props.value + increment * ((action === "fastincrease") ? 10 : 1);
+      maximum = parseInt(this.props.maximum);
+    }
+
+    var oldValue = this.props.value;
+    var proposedValue, newValue;
+    
+    //Figure out what the new value should be.
+    if (action === "decrease")
+    {
+      proposedValue = oldValue - increment;
+    }
+    else if (action === "fastdecrease")
+    {
+      proposedValue = oldValue - 10 * increment;
+    }
+    else if (action === "increase")
+    {
+      proposedValue = oldValue + increment;
+    }
+    else if (action === "fastincrease")
+    {
+      proposedValue = oldValue + 10 * increment;
+    }
+
+    //Check if the new value is going to be wihin boundaries.
+    if (minimum === "noMinimum" || proposedValue >= minimum)
+    {
+      newValue = proposedValue;
+    }
+    else if (maximum === "noMaximum" || proposedValue <= maximum)
+    {
+      newValue = proposedValue;
+    }
+    else
+    {
+      newValue = oldValue;
     }
 
     this.setState({
