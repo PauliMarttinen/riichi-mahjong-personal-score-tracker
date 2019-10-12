@@ -6,8 +6,7 @@ class CustomInput extends React.Component
   constructor(props)
   {
     super(props);
-    this.state =
-    {
+    this.state = {
       customPoints: parseInt(this.props.points)
     }
   }

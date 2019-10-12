@@ -58,12 +58,8 @@ class IncreaseDecrease extends React.Component
       proposedValue = oldValue + 10 * increment;
     }
 
-    //Check if the new value is going to be wihin boundaries.
-    if (minimum === "noMinimum" || proposedValue >= minimum)
-    {
-      newValue = proposedValue;
-    }
-    else if (maximum === "noMaximum" || proposedValue <= maximum)
+    //Check if the new value is going to be within boundaries.
+    if ((minimum === "noMinimum" || proposedValue >= minimum) && (maximum === "noMaximum" || proposedValue <= maximum))
     {
       newValue = proposedValue;
     }
