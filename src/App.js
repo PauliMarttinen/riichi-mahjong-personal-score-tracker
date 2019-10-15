@@ -15,23 +15,24 @@ class App extends React.Component {
     };
   }
 
-  changePoints = (button) => {
-    if (button.dataset.direction === "pay")
+  changePoints = (direction, amount) => {
+    if (direction === "pay")
     {
       this.setState({
-        points: this.state.points - parseInt(button.dataset.amount)
+        points: this.state.points - amount
       });
     }
-    if (button.dataset.direction === "get")
+    if (direction === "get")
     {
       this.setState({
-        points: this.state.points + parseInt(button.dataset.amount)
+        points: this.state.points + amount
       });
     }
-    if (button.dataset.direction === "custom")
+    if (direction === "custom")
     {
+      console.log("laa");
       this.setState({
-        points: parseInt(button.dataset.amount) - this.state.zeroPoint
+        points: amount - this.state.zeroPoint
       });
     }
   }

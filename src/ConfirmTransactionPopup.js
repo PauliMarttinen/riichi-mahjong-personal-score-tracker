@@ -24,13 +24,13 @@ class ConfirmTransactionPopup extends React.Component
           <div className="winchoice">
             <button data-direction="get"
                     data-amount={receiveTotal}
-                    onClick={e => this.props.onClick(e.target)}>Win as East</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Win as East</button>
             Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
                     data-amount={payTotal} 
-                    onClick={e => this.props.onClick(e.target)}>Lose to East</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Lose to East</button>
             Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
@@ -51,13 +51,13 @@ class ConfirmTransactionPopup extends React.Component
           <div className="winchoice">
             <button data-direction="get"
                     data-amount={receiveTotal}
-                    onClick={e => this.props.onClick(e.target)}>Win as East</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Win as East</button>
             Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
                     data-amount={payTotal}
-                    onClick={e => this.props.onClick(e.target)}>Lose to East</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Lose to East</button>
             Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
@@ -82,19 +82,19 @@ class ConfirmTransactionPopup extends React.Component
           <div className="winchoice">
             <button data-direction="get"
                     data-amount={receiveTotal}
-                    onClick={e => this.props.onClick(e.target)}>Win as Other</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Win as Other</button>
             Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
                     data-amount={payOtherTotal}
-                    onClick={e => this.props.onClick(e.target)}>Lose as Other</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Lose as Other</button>
             Pay {payOtherBase} + {payOtherHonba} = {payOtherTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
                     data-amount={payEastTotal}
-                    onClick={e => this.props.onClick(e.target)}>Lose as East</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Lose as East</button>
             Pay {payEastBase} + {payEastHonba} = {payEastTotal} points.
             </div>
         </div>
@@ -115,13 +115,13 @@ class ConfirmTransactionPopup extends React.Component
           <div className="winchoice">
             <button data-direction="get"
                     data-amount={receiveTotal}
-                    onClick={e => this.props.onClick(e.target)}>Win as Other</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Win as Other</button>
             Receive {receiveBase} + {receiveHonba} = {receiveTotal} points.
           </div>
           <div className="losechoice">
             <button data-direction="pay"
                     data-amount={payTotal}
-                    onClick={e => this.props.onClick(e.target)}>Lose to Other</button>
+                    onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>Lose to Other</button>
             Pay {payBase} + {payHonba} = {payTotal} points.
           </div>
         </div>
@@ -157,7 +157,7 @@ class ConfirmTransactionPopup extends React.Component
           <div className="confirmtransactionpopup popup">
             <h1 className="confirmtransactionpopup title">{winType}<br />{this.props.handsize}</h1>
             {this.buttons({east: parseInt(this.props.paymentEast), other: parseInt(this.props.paymentOther) })}
-            <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+            <button className="cancel" name="cancel" onClick={e => this.props.onClick("cancel", 0)}>Cancel</button>
           </div>
         </div>
       );
@@ -170,7 +170,7 @@ class ConfirmTransactionPopup extends React.Component
           <div className="confirmtransactionpopup popup">
             <h1 className="confirmtransactionpopup title">{winType}<br />{this.props.handsize}</h1>
             {this.buttons(parseInt(this.props.payment))}
-            <button className="cancel" name="cancel" onClick={e => this.props.onClick(e.target)}>Cancel</button>
+            <button className="cancel" name="cancel" onClick={e => this.props.onClick("cancel", 0)}>Cancel</button>
           </div>
         </div>
       );

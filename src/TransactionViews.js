@@ -16,6 +16,7 @@ import SmallTransactionsButtons from './SmallTransactionsButtons.js';
 import LimitHands from './LimitHands.js';
 import ScoringTable from './ScoringTable.js';
 import CustomInput from './CustomInput.js';
+import History from './History.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 
@@ -28,9 +29,11 @@ class TransactionViews extends React.Component
   {
     super(props);
     this.state = {
-      index: 1,
+      index: 4,
       honba: 0,
       points: this.props.points,
+      /* history: [], */
+      history: [2600, -5200],
       confirmPopup: {
         show: false,
         table: 0,
@@ -67,11 +70,11 @@ class TransactionViews extends React.Component
     });
   }
 
-  confirmationClick = (button) =>
+  confirmationClick = (direction, amount) =>
   {
-    if (button.name !== "cancel")
+    if (direction !== "cancel")
     {
-      this.props.onClick(button);
+      this.props.onClick(direction, amount);
     }
     this.setState({
       honba: 0,
@@ -94,6 +97,26 @@ class TransactionViews extends React.Component
     });
   }
 
+  changeHistory = (eventToRemove) =>
+  {
+    var newHistory = [];
+    for (var event = 0; event < this.state.history.length; event++)
+    {
+      if (event === eventToRemove)
+      {
+        
+        continue;
+      }
+      else
+      {
+        newHistory.push(this.state.history[event]);
+      }
+    }
+    this.setState({
+      history: newHistory
+    });
+  }
+
   render()
   {
     return (
@@ -104,6 +127,7 @@ class TransactionViews extends React.Component
             <div className="tab">Score Table</div>
             <div className="tab">Limit Hands</div>
             <div className="tab">Custom Input</div>
+            <div className="tab">History</div>
             <div className="tabcontent">
               <SmallTransactionsButtons onClick={this.props.onClick} />
             </div>
@@ -111,10 +135,13 @@ class TransactionViews extends React.Component
               <ScoringTable transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <LimitHands transactionConfirmation={this.askToConfirmTransaction}  honba={this.state.honba} />
+              <LimitHands transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <CustomInput points={this.state.points} onClick={this.props.onClick}/>
+              <CustomInput points={this.state.points} onClick={this.props.onClick} />
+            </div>
+            <div className="tabcontent">
+              <History history={this.state.history} onClick={this.changeHistory} />
             </div>
           </ViewTabs>
         </div>

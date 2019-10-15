@@ -17,7 +17,7 @@ class IncreaseDecrease extends React.Component
   {
     var increment = parseInt(this.props.increment);
     var minimum, maximum;
-    if (this.props.minimum === "noMinimum")
+    if (this.props.minimum === "noMinimum" || typeof this.props.minimum === "undefined")
     {
       minimum = "noMinimum";
     }
@@ -28,7 +28,7 @@ class IncreaseDecrease extends React.Component
 
     //Neither need for the IncreaseDecrease component within this Mahjong app requires a maximum, but
     //I felt like this component needs a maximum feature for completeness sake.
-    if (this.props.maximum === "noMaximum")
+    if (this.props.maximum === "noMaximum" || typeof this.props.maximum === "undefined")
     {
       maximum = "noMaximum";
     }
@@ -37,7 +37,7 @@ class IncreaseDecrease extends React.Component
       maximum = parseInt(this.props.maximum);
     }
 
-    var oldValue = this.props.value;
+    var oldValue = parseInt(this.props.value);
     var proposedValue, newValue;
     
     //Figure out what the new value should be.
@@ -57,7 +57,7 @@ class IncreaseDecrease extends React.Component
     {
       proposedValue = oldValue + 10 * increment;
     }
-
+    
     //Check if the new value is going to be within boundaries.
     if ((minimum === "noMinimum" || proposedValue >= minimum) && (maximum === "noMaximum" || proposedValue <= maximum))
     {
@@ -67,7 +67,7 @@ class IncreaseDecrease extends React.Component
     {
       newValue = oldValue;
     }
-
+  
     this.setState({
       value: newValue
     });

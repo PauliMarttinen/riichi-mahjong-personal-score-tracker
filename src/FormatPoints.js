@@ -1,20 +1,31 @@
 import React from 'react';
 
-function formatPoints(points)
+function formatPoints(points, showSign = true)
 {
   var sign;
-  if (points > 0)
+  if (!showSign)
   {
-    sign = "+";
-  }
-  else if (points < 0)
-  {
-    sign = "–";
-    points = -points;
+    sign = "";
+    if (points < 0)
+    {
+      points = -points;
+    }
   }
   else
   {
-    sign = "±";
+    if (points > 0)
+    {
+      sign = "+";
+    }
+    else if (points < 0)
+    {
+      sign = "–";
+      points = -points;
+    }
+    else
+    {
+      sign = "±";
+    }
   }
   return <span className="points">{sign}{points/100}<span className="hundreds">00</span></span>;
 }
