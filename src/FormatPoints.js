@@ -1,3 +1,5 @@
+//The function for formatting a given score to look like a proper Mahjong score.
+
 import React from 'react';
 
 function formatPoints(points, showSign = true)

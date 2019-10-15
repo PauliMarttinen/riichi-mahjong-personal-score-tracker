@@ -1,3 +1,5 @@
+//The App Info popup.
+
 import React from 'react';
 
 class AppInfo extends React.Component

@@ -1,3 +1,6 @@
+//Input custom score in case someone notices a difference between the score kept on this app and
+//the score kept on some other score tracking feature such as sticks.
+
 import React from 'react';
 import IncreaseDecrease from './IncreaseDecrease.js';
 

@@ -1,3 +1,6 @@
+//The popup that asks to confirm a transaction. Displays buttons for win and loss as different winds, and
+//shows exact point transactions for each case.
+
 import React from 'react';
 
 class ConfirmTransactionPopup extends React.Component

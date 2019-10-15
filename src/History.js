@@ -1,3 +1,8 @@
+//The view that lists all transactions for historical review purposes and for the purposes of undoing a transaction,
+//should the user accidentally enter an incorrect transaction.
+//
+//Note that the history does not include custom inputs.
+
 import React from 'react';
 import formatPoints from './FormatPoints.js';
 
