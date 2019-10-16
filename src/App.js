@@ -30,7 +30,6 @@ class App extends React.Component {
     }
     if (direction === "custom")
     {
-      console.log("laa");
       this.setState({
         points: amount - this.state.zeroPoint
       });

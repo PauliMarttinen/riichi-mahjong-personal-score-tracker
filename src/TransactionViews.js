@@ -104,7 +104,7 @@ class TransactionViews extends React.Component
     {
       if (event === eventToRemove)
       {
-        
+        this.props.onClick("custom", this.state.points - this.state.history[event]);
         continue;
       }
       else
