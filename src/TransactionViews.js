@@ -32,8 +32,7 @@ class TransactionViews extends React.Component
       index: 4,
       honba: 0,
       points: this.props.points,
-      /* history: [], */
-      history: [2600, -5200],
+      history: [],
       confirmPopup: {
         show: false,
         table: 0,
@@ -72,12 +71,27 @@ class TransactionViews extends React.Component
 
   confirmationClick = (direction, amount) =>
   {
+    var history = this.state.history;
     if (direction !== "cancel")
     {
       this.props.onClick(direction, amount);
     }
+
+    if (direction !== "custom")
+    {
+      if (direction === "pay")
+      {
+        history.push(-amount);
+      }
+      else
+      {
+        history.push(amount);
+      }
+    }
+    
     this.setState({
       honba: 0,
+      history: history,
       confirmPopup: {
         show: false,
         honba: 0,
@@ -104,7 +118,7 @@ class TransactionViews extends React.Component
     {
       if (event === eventToRemove)
       {
-        this.props.onClick("custom", this.state.points - this.state.history[event]);
+        this.props.onClick("custom", this.props.points - this.state.history[event]);
         continue;
       }
       else
