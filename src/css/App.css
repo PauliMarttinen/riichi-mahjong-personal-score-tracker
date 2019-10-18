@@ -172,19 +172,6 @@ button:active
   border-radius: 0;
 }
 
-.custominput .increasedecrease
-{
-  border-radius: 1vh;
-  position: static;
-}
-
-.custominput .increasedecrease
-{
-  margin-bottom: 5vh;
-  width: 90%;
-  margin: 0 auto 5vh auto;
-}
-
 .increasedecrease .label
 {
   margin-bottom: 1vh;
@@ -300,12 +287,24 @@ button:active
   padding: 1vh 1vw;
 }
 
-/* CustomInput */
+/* Manipulate */
 
 .custominput
 {
   margin-top: 5vh;
   text-align: center;
+}
+
+.custominput .increasedecrease
+{
+  border-radius: 1vh;
+  position: static;
+}
+
+.custominput .increasedecrease
+{
+  width: 90%;
+  margin: 0 auto 3vh auto;
 }
 
 .custominput .increasedecrease .action div
@@ -316,4 +315,41 @@ button:active
 .custominput button
 {
   width: 80%;
+}
+
+.history
+{
+  color: rgb(5, 51, 5);
+  background-image: linear-gradient(rgb(115, 189, 115), rgb(79, 129, 79));
+  box-shadow: 0 0 1vh brown;
+  border-radius: 1vh;
+  width: 90%;
+  margin: 4vh auto 0 auto;
+  padding: 2vh 0;
+}
+
+.history .label
+{
+  text-align: center;
+}
+
+.history table
+{
+  width: 90%;
+  margin: 2vh auto 0 auto;
+}
+
+.history table td
+{
+  padding: 0.5vh 0;
+}
+
+.history table .received
+{
+  color: rgb(8, 73, 8)
+}
+
+.history table .paid
+{
+  color: rgb(110, 29, 29)
 }
