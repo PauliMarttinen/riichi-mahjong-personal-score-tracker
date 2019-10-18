@@ -17,7 +17,7 @@ export class SmallTransactionsButton extends React.Component
     var directionText = (this.props.direction === "pay") ? "Pay" : "Get";
 
     return (
-      <button className="smalltransaction" data-direction={this.props.direction} data-amount={this.props.amount} onClick={e => this.props.onClick(e.target)}>
+      <button className="smalltransaction" data-direction={this.props.direction} data-amount={this.props.amount} onClick={e => this.props.onClick(e.target.dataset.direction, parseInt(e.target.dataset.amount))}>
         {directionText} {this.props.amount}
       </button>
     );
