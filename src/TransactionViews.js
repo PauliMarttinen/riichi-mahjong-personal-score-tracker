@@ -15,8 +15,7 @@ import ViewTabs from './Tabs/ViewTabs.js';
 import SmallTransactionsButtons from './SmallTransactionsButtons.js';
 import LimitHands from './LimitHands.js';
 import ScoringTable from './ScoringTable.js';
-import CustomInput from './CustomInput.js';
-import History from './History.js';
+import Manipulate from './Manipulate.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 
@@ -141,8 +140,7 @@ class TransactionViews extends React.Component
             <div className="tab">Small Transactions</div>
             <div className="tab">Score Table</div>
             <div className="tab">Limit Hands</div>
-            <div className="tab">Custom Input</div>
-            <div className="tab">History</div>
+            <div className="tab">Manipulate</div>
             <div className="tabcontent">
               <SmallTransactionsButtons onClick={this.props.onClick} />
             </div>
@@ -153,10 +151,7 @@ class TransactionViews extends React.Component
               <LimitHands transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <CustomInput points={this.state.points} onClick={this.props.onClick} />
-            </div>
-            <div className="tabcontent">
-              <History history={this.state.history} onClick={this.changeHistory} />
+              <Manipulate points={this.state.points} onCustomClick={this.props.onClick} history={this.state.history} onHistoryClick={this.changeHistory} />
             </div>
           </ViewTabs>
         </div>

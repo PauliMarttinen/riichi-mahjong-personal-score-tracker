@@ -35,6 +35,9 @@ class History extends React.Component
 
     return (
       <div className="history">
+        <div className="label">
+          Change history
+        </div>
         <table className="historytable">
           <tbody>
             {historyDisplay}
