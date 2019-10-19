@@ -353,3 +353,14 @@ button:active
 {
   color: rgb(110, 29, 29)
 }
+
+.confirmhistorypopup h1
+{
+  font-size: 3.5vh;
+  text-align: center;
+}
+
+.confirmhistorypopup button
+{
+  width: 50%;
+}

@@ -4,10 +4,23 @@
 //Note that the history does not include custom inputs.
 
 import React from 'react';
+import ConfirmHistoryPopup from './ConfirmHistoryPopup.js';
+
 import formatPoints from './FormatPoints.js';
 
 class History extends React.Component
 {
+  constructor()
+  {
+    super();
+    this.state = {
+      ConfirmPopup:
+      {
+        show: true
+      }
+    };
+  }
+
   render()
   {
     var historyDisplay;
@@ -53,6 +66,9 @@ class History extends React.Component
           Transaction history
         </div>
         {historyDisplay}
+        {(this.state.ConfirmPopup.show ? <ConfirmHistoryPopup
+                                            event={this.state.ConfirmPopup.event}
+                                            amount={this.state.ConfirmPopup.amount} /> : null)}
       </div>
     );
   }

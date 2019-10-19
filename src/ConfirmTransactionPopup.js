@@ -151,7 +151,7 @@ class ConfirmTransactionPopup extends React.Component
     {
       return (
         <div>
-        <div className="popupbackdrop"></div>
+          <div className="popupbackdrop"></div>
           <div className="confirmtransactionpopup popup">
             <h1 className="confirmtransactionpopup title">{winType}<br />{this.props.handsize}</h1>
             {this.buttons(parseInt(this.props.payment))}

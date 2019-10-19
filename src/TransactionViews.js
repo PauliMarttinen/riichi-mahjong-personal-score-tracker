@@ -31,7 +31,7 @@ class TransactionViews extends React.Component
       index: 1,
       honba: 0,
       points: this.props.points,
-      history: [],
+      history: [1000],
       confirmPopup: {
         show: false,
         table: 0,
