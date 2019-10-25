@@ -20,18 +20,18 @@ class ConfirmHistoryPopup extends React.Component
       <div>
         <div className="popupbackdrop"></div>
         <div className="confirmhistorypopup popup">
-          <h1 className="confirmhistorypopup title">Confirm history change</h1>
+          <h1 className="confirmhistorypopup title">Remove transaction from history</h1>
           <table>
             <tbody>
               <tr className={"historyevent " + direction.toLowerCase()}>
-                <td>{this.props.event}</td>
+                <td>{parseInt(this.props.event) + 1}</td>
                 <td>{direction}</td>
                 <td>{formatPoints(this.props.amount, false)}</td>
               </tr>
             </tbody>
           </table>
-          <button className="cancel" name="cancel">Cancel</button>
-          <button className="confirm" name="confirm">Confirm</button>
+          <button className="cancel" onClick={e => this.props.onClick(-1)}>Cancel</button>
+          <button className="confirm" onClick={e => this.props.onClick(parseInt(this.props.event))}>Confirm</button>
         </div>
       </div>
     );

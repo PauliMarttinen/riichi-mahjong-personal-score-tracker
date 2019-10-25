@@ -333,34 +333,42 @@ button:active
   text-align: center;
 }
 
-.history table
+.history table, .confirmhistorypopup table
 {
   width: 90%;
   margin: 2vh auto 0 auto;
 }
 
-.history table td
+.history table td, .confirmhistorypopup table td
 {
   padding: 0.5vh 0;
 }
 
-.history table .received
+.history table .received, .confirmhistorypopup table .received
 {
   color: rgb(8, 73, 8)
 }
 
-.history table .paid
+.history table .paid, .confirmhistorypopup table .paid
 {
   color: rgb(110, 29, 29)
+}
+
+.confirmhistorypopup
+{
+  text-align: center;
+  padding-bottom: 3vh;
 }
 
 .confirmhistorypopup h1
 {
   font-size: 3.5vh;
   text-align: center;
+  padding-bottom: 0;
 }
 
 .confirmhistorypopup button
 {
-  width: 50%;
+  width: 40%;
+  margin: 3vw;
 }

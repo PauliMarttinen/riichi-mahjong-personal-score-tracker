@@ -32,7 +32,7 @@ class TransactionViews extends React.Component
       index: 1,
       honba: 0,
       points: this.props.points,
-      history: [1000],
+      history: [],
       confirmTransactionPopup: {
         show: false,
         table: 0,
@@ -75,8 +75,6 @@ class TransactionViews extends React.Component
 
   askToConfirmHistoryChange = (event) =>
   {
-    console.log("event in transactionviews.js");
-    console.log(event);
     this.setState({
       confirmHistoryPopup: {
         show: true,
@@ -128,24 +126,40 @@ class TransactionViews extends React.Component
     });
   }
 
-  changeHistory = (eventToRemove) =>
+  historyConfirmationClick = (eventToRemove) =>
   {
-    var newHistory = [];
-    for (var event = 0; event < this.state.history.length; event++)
+    if (eventToRemove !== -1)
     {
-      if (event === eventToRemove)
+      var newHistory = [];
+      for (var event = 0; event < this.state.history.length; event++)
       {
-        this.props.onClick("custom", this.props.points - this.state.history[event]);
-        continue;
+        if (event === eventToRemove)
+        {
+          this.props.onClick("custom", this.props.points - this.state.history[event]);
+          continue;
+        }
+        else
+        {
+          newHistory.push(this.state.history[event]);
+        }
       }
-      else
-      {
-        newHistory.push(this.state.history[event]);
-      }
+      this.setState({
+        history: newHistory,
+        confirmHistoryPopup: {
+          show: false,
+          event: 0
+        }
+      });
     }
-    this.setState({
-      history: newHistory
-    });
+    else
+    {
+      this.setState({
+        confirmHistoryPopup: {
+          show: false,
+          event: 0
+        }
+      });
+    }
   }
 
   render()
@@ -185,7 +199,8 @@ class TransactionViews extends React.Component
                                             onClick={this.transactionConfirmationClick} /> : null)}
         {(this.state.confirmHistoryPopup.show ? <ConfirmHistoryPopup
                                             event={this.state.confirmHistoryPopup.event}
-                                            amount={this.state.history[this.state.confirmHistoryPopup.event]} /> : null)}
+                                            amount={this.state.history[this.state.confirmHistoryPopup.event]}
+                                            onClick={this.historyConfirmationClick} /> : null)}
       </div>
     );
   }
