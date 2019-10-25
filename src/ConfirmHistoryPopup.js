@@ -4,6 +4,7 @@ import formatPoints from './FormatPoints.js';
 
 class ConfirmHistoryPopup extends React.Component
 {
+
   render()
   {
     var direction;
@@ -24,8 +25,8 @@ class ConfirmHistoryPopup extends React.Component
             <tbody>
               <tr className={"historyevent " + direction.toLowerCase()}>
                 <td>{this.props.event}</td>
-                <td>{direction}}</td>
-                <td>{formatPoints(this.props.amount. false)}</td>
+                <td>{direction}</td>
+                <td>{formatPoints(this.props.amount, false)}</td>
               </tr>
             </tbody>
           </table>

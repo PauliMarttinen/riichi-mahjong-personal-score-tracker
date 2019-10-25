@@ -19,8 +19,9 @@ import Manipulate from './Manipulate.js';
 
 import IncreaseDecrease from './IncreaseDecrease.js';
 
-//Confirmation popup.
+//Confirmation popups.
 import ConfirmTransactionPopup from './ConfirmTransactionPopup.js';
+import ConfirmHistoryPopup from './ConfirmHistoryPopup.js';
 
 class TransactionViews extends React.Component
 {
@@ -32,7 +33,7 @@ class TransactionViews extends React.Component
       honba: 0,
       points: this.props.points,
       history: [1000],
-      confirmPopup: {
+      confirmTransactionPopup: {
         show: false,
         table: 0,
         honba: 0,
@@ -40,6 +41,10 @@ class TransactionViews extends React.Component
         paymentEast: 0,
         paymentOther: 0,
         handSize: ""
+      },
+      confirmHistoryPopup: {
+        show: false,
+        event: 0
       }
     };
   }
@@ -56,7 +61,7 @@ class TransactionViews extends React.Component
   askToConfirmTransaction = (button) =>
   {
     this.setState({
-      confirmPopup: {
+      confirmTransactionPopup: {
         show: true,
         table: button.dataset.table,
         honba: button.dataset.honba,
@@ -68,7 +73,19 @@ class TransactionViews extends React.Component
     });
   }
 
-  confirmationClick = (direction, amount) =>
+  askToConfirmHistoryChange = (event) =>
+  {
+    console.log("event in transactionviews.js");
+    console.log(event);
+    this.setState({
+      confirmHistoryPopup: {
+        show: true,
+        event: event
+      }
+    });
+  }
+
+  transactionConfirmationClick = (direction, amount) =>
   {
     var history = this.state.history;
     var honba = this.state.honba;
@@ -92,7 +109,7 @@ class TransactionViews extends React.Component
     this.setState({
       honba: honba,
       history: history,
-      confirmPopup: {
+      confirmTransactionPopup: {
         show: false,
         honba: 0,
         table: 0,
@@ -151,21 +168,24 @@ class TransactionViews extends React.Component
               <LimitHands transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
             </div>
             <div className="tabcontent">
-              <Manipulate points={this.state.points} onCustomClick={this.props.onClick} history={this.state.history} onHistoryClick={this.changeHistory} />
+              <Manipulate points={this.state.points} onCustomClick={this.props.onClick} history={this.state.history} historyConfirmation={this.askToConfirmHistoryChange} />
             </div>
           </ViewTabs>
         </div>
         {(this.state.index === 1 || this.state.index === 2) ?
           <IncreaseDecrease value={this.state.honba} minimum="0" increment="1" label="Honba" onClick={this.changeHonba} />
           : null }
-        {(this.state.confirmPopup.show ? <ConfirmTransactionPopup
-                                            table={this.state.confirmPopup.table}
-                                            handsize={this.state.confirmPopup.handSize}
-                                            payment={this.state.confirmPopup.payment}
-                                            paymentEast={this.state.confirmPopup.paymentEast} 
-                                            paymentOther={this.state.confirmPopup.paymentOther}
-                                            honba={this.state.confirmPopup.honba} 
-                                            onClick={this.confirmationClick} /> : null)}
+        {(this.state.confirmTransactionPopup.show ? <ConfirmTransactionPopup
+                                            table={this.state.confirmTransactionPopup.table}
+                                            handsize={this.state.confirmTransactionPopup.handSize}
+                                            payment={this.state.confirmTransactionPopup.payment}
+                                            paymentEast={this.state.confirmTransactionPopup.paymentEast} 
+                                            paymentOther={this.state.confirmTransactionPopup.paymentOther}
+                                            honba={this.state.confirmTransactionPopup.honba} 
+                                            onClick={this.transactionConfirmationClick} /> : null)}
+        {(this.state.confirmHistoryPopup.show ? <ConfirmHistoryPopup
+                                            event={this.state.confirmHistoryPopup.event}
+                                            amount={this.state.history[this.state.confirmHistoryPopup.event]} /> : null)}
       </div>
     );
   }

@@ -9,7 +9,7 @@ class Manipulate extends React.Component
     return (
       <div className="manipulate">
         <CustomInput points={this.props.points} onClick={this.props.onCustomClick} />
-        <History history={this.props.history} onClick={this.props.onHistoryClick} />
+        <History history={this.props.history} historyConfirmation={this.props.historyConfirmation} />
       </div>
     );
   }

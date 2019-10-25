@@ -4,23 +4,11 @@
 //Note that the history does not include custom inputs.
 
 import React from 'react';
-import ConfirmHistoryPopup from './ConfirmHistoryPopup.js';
 
 import formatPoints from './FormatPoints.js';
 
 class History extends React.Component
 {
-  constructor()
-  {
-    super();
-    this.state = {
-      ConfirmPopup:
-      {
-        show: true
-      }
-    };
-  }
-
   render()
   {
     var historyDisplay;
@@ -38,13 +26,13 @@ class History extends React.Component
         {
           direction = "Received";
         }
-
+        
         historyList.push(
           <tr key={event} className={"historyevent " + direction.toLowerCase()}>
             <td>{event + 1}</td>
             <td>{direction}</td>
             <td>{formatPoints(this.props.history[event], false)}</td>
-            <td><button data-event={event} onClick={e => this.props.onClick(parseInt(e.target.dataset.event))}>Undo</button></td>
+            <td><button data-event={event} onClick={e => this.props.historyConfirmation(e.target.dataset.event)}>Undo</button></td>
           </tr>
         );
       }
@@ -59,16 +47,12 @@ class History extends React.Component
     {
       historyDisplay = <p className="label">No transactions to display.</p>;
     }
-
     return (
       <div className="history">
         <div className="label">
           Transaction history
         </div>
         {historyDisplay}
-        {(this.state.ConfirmPopup.show ? <ConfirmHistoryPopup
-                                            event={this.state.ConfirmPopup.event}
-                                            amount={this.state.ConfirmPopup.amount} /> : null)}
       </div>
     );
   }
