@@ -85,28 +85,19 @@ class TransactionViews extends React.Component
 
   transactionConfirmationClick = (direction, amount) =>
   {
-    var history = this.state.history;
     var honba = this.state.honba;
     if (direction !== "cancel")
     {
       this.props.onClick(direction, amount);
       if (direction !== "custom")
       {
-        if (direction === "pay")
-        {
-          history.push(-amount);
-        }
-        else
-        {
-          history.push(amount);
-        }
+        this.addTransactionToHistory(direction, amount);
       }
       honba = 0;
     }
     
     this.setState({
       honba: honba,
-      history: history,
       confirmTransactionPopup: {
         show: false,
         honba: 0,
@@ -116,6 +107,28 @@ class TransactionViews extends React.Component
         paymentOther: 0,
         handSize: ""
       }
+    });
+  }
+
+  makeSmallTransaction = (direction, amount) =>
+  {
+    this.addTransactionToHistory(direction, amount);
+    this.props.onClick(direction, amount);
+  }
+
+  addTransactionToHistory = (direction, amount) =>
+  {
+    var history = this.state.history;
+    if (direction === "pay")
+    {
+      history.push(-amount);
+    }
+    else
+    {
+      history.push(amount);
+    }
+    this.setState({
+      history: history
     });
   }
 
@@ -173,7 +186,7 @@ class TransactionViews extends React.Component
             <div className="tab">Limit Hands</div>
             <div className="tab">Manipulate</div>
             <div className="tabcontent">
-              <SmallTransactionsButtons onClick={this.props.onClick} />
+              <SmallTransactionsButtons onClick={this.makeSmallTransaction} />
             </div>
             <div className="tabcontent">
               <ScoringTable transactionConfirmation={this.askToConfirmTransaction} honba={this.state.honba} />
